@@ -5,6 +5,8 @@ import styles from "../styles/pages/top-page.module.scss";
 export default function TopPage() {
   return (
     <div className={styles.topPage}>
+      <header className={styles.header}></header>
+      <h1 className={styles.title}>カタログを検索！</h1>
       <SearchIcon />
 
       {/* <div>トップです</div>
