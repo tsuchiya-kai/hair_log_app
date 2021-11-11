@@ -1,11 +1,13 @@
-import Link from "next/link";
-import Icon from "../components/atoms/icon/SearchIcon";
+// import Link from "next/link";
+import { SearchIcon } from "../components/atoms/icon/index";
+import styles from "../styles/pages/top-page.module.scss";
 
 export default function TopPage() {
   return (
-    <>
-      <Icon />
-      <div>トップです</div>
+    <div className={styles.topPage}>
+      <SearchIcon />
+
+      {/* <div>トップです</div>
       <h1>h1テスト</h1>
       <h2>h2テスト</h2>
       <Link href="/">テスト</Link>
@@ -18,7 +20,7 @@ export default function TopPage() {
             </Link>
           );
         })}
-      </li>
-    </>
+      </li> */}
+    </div>
   );
 }
