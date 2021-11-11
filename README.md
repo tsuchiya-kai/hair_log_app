@@ -1,40 +1,44 @@
-# next_environment
+# HAIR_LOG_APP
 
-逼迫した案件などで Next.js 環境をクイックに利用できるようボイラープレートを事前に作成しておく
+## About
 
-## 以下は一応 Next 標準の README を載せておく
+美容師が自分の作品をヘアカタログのようにお客様に見せられるような web アプリを作成しようと考えています。
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Environment
 
-## Getting Started
+- node ^^14.17.0
+  - vercel の都合でこのバージョンです
 
-First, run the development server:
+## hosting
+
+- frontend
+  - vercel
+- backend
+  - vercel(Next.js API)
+
+## How to
+
+- install
 
 ```bash
-npm run dev
-# or
-yarn dev
+$ yarn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- ローカル開発
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+$ yarn dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- formatting
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+## js
+$ yarn lint:js:fix
 
-## Learn More
+## scss
+$ yarn lint:style:fix
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## jsとcss両方
+$ yarn lint:fix
+```
