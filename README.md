@@ -4,6 +4,15 @@
 
 美容師が自分の作品をヘアカタログのようにお客様に見せられるような web アプリを作成しようと考えています。
 
+## hosting
+
+こちらからご覧いただけます：https://hair-log-app.vercel.app/
+
+Basic 認証：
+
+- ID: reviewer
+- PassWord: dHY6jR4d6XzVu5LyvZ7F9925OA74seGh
+
 ## Environment
 
 - node ^14.17.0
@@ -23,13 +32,6 @@
   - CSS 設計
     - CSS Modules
     - ITCSS × RSCSS
-
-## hosting
-
-- frontend
-  - vercel
-- backend
-  - vercel(Next.js API)
 
 ## How to
 
