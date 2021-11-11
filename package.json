@@ -13,7 +13,7 @@
     "lint:style": "stylelint '**/*.{css,scss,sass}'",
     "lint:style:fix": "stylelint --fix '**/*.{css,scss,sass}'",
     "lint": "yarn lint:js && yarn lint:style",
-    "lint:fix": "eslint . --ext .js,.ts,.tsx --fix"
+    "lint:fix": "yarn lint:js:fix && yarn lint:style:fix"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.3.1",
