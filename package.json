@@ -5,7 +5,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .js,.ts,.tsx",
+    "lint:js": "eslint . --ext .js,.ts,.tsx",
+    "lint:js:fix": "eslint . --ext .js,.ts,.tsx --fix",
+    "lint:style": "stylelint '**/*.{css,scss,sass}'",
+    "lint:style:fix": "stylelint --fix '**/*.{css,scss,sass}'",
+    "lint": "yarn lint:js && yarn lint:style",
     "lint:fix": "eslint . --ext .js,.ts,.tsx --fix"
   },
   "dependencies": {
