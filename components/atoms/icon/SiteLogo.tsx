@@ -1,3 +1,5 @@
+import styles from "styles/components/atoms/site-icon.module.scss";
+
 export default function SiteLogo() {
-  return <img src="images/sample_logo.png" />;
+  return <img className={styles.siteIcon} src="images/sample_logo.png" />;
 }
