@@ -9,7 +9,7 @@ const nextConfig = {
   },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
-    prependData: `@import "ITCSS/settings/colors.scss";`,
+    prependData: `@import "global.scss";`,
   },
 };
 
