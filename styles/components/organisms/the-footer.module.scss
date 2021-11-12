@@ -1,10 +1,30 @@
 .theFooter {
   height: 300px;
-  background-color: #464646;
+  background-color: #f2f2f2;
+  border-top: 1px solid #f0f0f0;
 
   > .inner {
     max-width: 832px;
     padding: 0 32px;
     margin: 0 auto;
+  }
+
+  > .inner > .profile {
+    text-align: center;
+  }
+
+  > .inner > .profile > .title {
+    font-size: 2rem;
+  }
+
+  > .inner > .profile > .image {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+  }
+
+  > .inner > .profile > .text {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
   }
 }
