@@ -1,5 +1,13 @@
 .theHeader {
   height: 60px; //仮
-  background-color: green;
+  background-color: $main-white;
   font-size: 2rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  // @include respond(tab-port) {
+  //   padding: 8px 0 0 0;
+  // }
 }
