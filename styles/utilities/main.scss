@@ -1,9 +1,10 @@
 ._hidden {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0%;
   transition: opacity 0.3s;
+  visibility: hidden;
 }
+
 ._show {
-  opacity: 1;
+  opacity: 100%;
   visibility: visible;
 }

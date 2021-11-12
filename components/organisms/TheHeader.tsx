@@ -6,8 +6,10 @@ export default function TheHeader(props) {
   return (
     <>
       <header className={`${styles.theHeader} ${props.className}`}>
-        <SiteLogo className={styles.logo} />
-        <TheMenu className={styles.menu} />
+        <div className={styles.wrap}>
+          <SiteLogo className={styles.logo} />
+          <TheMenu className={styles.menu} />
+        </div>
       </header>
     </>
   );
