@@ -1,12 +1,12 @@
 // settings
-@import "ITCSS/settings/colors";
-@import "ITCSS/settings/fonts";
+@import "settings/colors";
+@import "settings/fonts";
 
 // tools
-@import "ITCSS/tools/mixins";
+@import "tools/mixins";
 
 // generic
-@import "ITCSS/generic/reset";
-@import "ITCSS/generic/root-font-size";
-@import "ITCSS/generic/border-box";
-@import "ITCSS/generic/typography";
+@import "generic/reset";
+@import "generic/root-font-size";
+@import "generic/border-box";
+@import "generic/typography";
