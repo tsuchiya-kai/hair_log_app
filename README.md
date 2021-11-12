@@ -29,9 +29,7 @@ Basic 認証：
 - Prettier
 - stylelint
 - Sass
-  - CSS 設計
-    - CSS Modules
-    - ITCSS × RSCSS
+  - 設計: CSS Modules + ITCSS + RSCSS
 
 ## How to
 
