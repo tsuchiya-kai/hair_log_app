@@ -1,0 +1,9 @@
+.theMenu {
+  position: relative;
+
+  > .pc {
+    position: absolute;
+    top: 60px; // header分
+    right: 0;
+  }
+}

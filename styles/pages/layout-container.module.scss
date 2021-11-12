@@ -1,4 +1,10 @@
 .layoutContainer {
   padding-top: 60px;
-  min-height: 100vh;
+
+  > .inner {
+    max-width: 832px;
+    padding: 0 32px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
 }

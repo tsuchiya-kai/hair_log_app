@@ -1,0 +1,70 @@
+._hidden {
+  opacity: 0%;
+  transition: opacity 0.3s;
+  visibility: hidden;
+}
+
+._show {
+  opacity: 100%;
+  visibility: visible;
+}
+
+._bold {
+  font-weight: bold;
+}
+
+@for $i from 1 through 20 {
+  /* stylelint-disable-next-line */
+  ._ml-#{$i} {
+    margin-left: #{$i}0px !important;
+  }
+}
+
+@for $i from 1 through 20 {
+  /* stylelint-disable-next-line */
+  ._mr-#{$i} {
+    margin-right: #{$i}0px !important;
+  }
+}
+
+@for $i from 1 through 20 {
+  /* stylelint-disable-next-line */
+  ._mt-#{$i} {
+    margin-top: #{$i}0px !important;
+  }
+}
+
+@for $i from 1 through 20 {
+  /* stylelint-disable-next-line */
+  ._mb-#{$i} {
+    margin-bottom: #{$i}0px !important;
+  }
+}
+
+@for $i from 1 through 20 {
+  /* stylelint-disable-next-line */
+  ._pl-#{$i} {
+    padding-left: #{$i}0px !important;
+  }
+}
+
+@for $i from 1 through 20 {
+  /* stylelint-disable-next-line */
+  ._pr-#{$i} {
+    padding-right: #{$i}0px !important;
+  }
+}
+
+@for $i from 1 through 20 {
+  /* stylelint-disable-next-line */
+  ._pt-#{$i} {
+    padding-top: #{$i}0px !important;
+  }
+}
+
+@for $i from 1 through 20 {
+  /* stylelint-disable-next-line */
+  ._pb-#{$i} {
+    padding-bottom: #{$i}0px !important;
+  }
+}
