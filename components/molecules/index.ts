@@ -1,1 +1,1 @@
-export { default as TheMenuForPc } from "./TheMenuForPc";
+export { default as MenuForPc } from "./MenuForPc";

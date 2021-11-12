@@ -1,8 +1,11 @@
 .theMenuForPc {
-  background-color: red;
   position: fixed;
-  top: 60px;
+  top: 60px; // header分
   right: 0;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 500px; //仮
+  box-shadow: 0 0 10px rgba(18, 18, 18, 0.16);
+  padding: 16px;
+  z-index: 1;
+  background-color: $main-white;
 }
