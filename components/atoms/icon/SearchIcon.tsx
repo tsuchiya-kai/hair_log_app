@@ -1,6 +1,7 @@
-export default function About() {
+export default function About(props) {
   return (
     <svg
+      {...props}
       width="24"
       height="24"
       viewBox="0 0 24 24"
