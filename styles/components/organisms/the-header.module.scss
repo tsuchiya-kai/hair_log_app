@@ -1,0 +1,31 @@
+.theHeader {
+  width: 100%;
+  height: 60px;
+  background-color: $main-white;
+  font-size: 2rem;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  > .logo {
+    margin-left: 50px;
+  }
+
+  > .menu {
+    height: 100%;
+    width: 90px;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  > .menu:hover {
+    background-color: $dark-white;
+  }
+
+  // @include respond(tab-port) {
+  //   padding: 8px 0 0 0;
+  // }
+}

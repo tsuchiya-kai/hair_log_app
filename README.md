@@ -4,17 +4,34 @@
 
 美容師が自分の作品をヘアカタログのようにお客様に見せられるような web アプリを作成しようと考えています。
 
-## Environment
-
-- node ^^14.17.0
-  - vercel の都合でこのバージョンです
-
 ## hosting
 
-- frontend
-  - vercel
-- backend
-  - vercel(Next.js API)
+こちらからご覧いただけます：https://hair-log-app.vercel.app/
+
+Basic 認証：
+
+- ID: reviewer
+- PassWord: dHY6jR4d6XzVu5LyvZ7F9925OA74seGh
+
+## Environment
+
+- node ^14.17.0
+
+  - vercel の都合でこのバージョンです
+
+- Next.js : 12.0.3
+- react : 17.0.2
+- typescript : ^4.4.4
+
+## Tools
+
+- ESLint
+- Prettier
+- stylelint
+- Sass
+  - CSS 設計
+    - CSS Modules
+    - ITCSS × RSCSS
 
 ## How to
 
