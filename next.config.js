@@ -11,7 +11,7 @@ const nextConfig = {
   // 参考: https://www.reddit.com/r/nextjs/comments/m1z72p/how_to_use_global_sass_variable/
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
-    prependData: `@import "globalVariables.scss";`,
+    prependData: `@import "global-variables.scss";`,
   },
 };
 
