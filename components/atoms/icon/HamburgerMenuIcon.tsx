@@ -1,6 +1,7 @@
 export default function HamburgerMenuIcon(props) {
   return (
     <svg
+      {...props}
       className={props.className}
       width="auto"
       height="auto"
