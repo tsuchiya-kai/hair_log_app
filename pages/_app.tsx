@@ -1,5 +1,5 @@
 import App from "next/app";
-import Layout from "../components/layout";
+import Layout from "@components/layout";
 import basicAuthCheck from "../lib/basicAuth";
 import type { AppProps, AppContext } from "next/app";
 import type { ReactElement, ReactNode } from "react";
