@@ -1,5 +1,3 @@
-import type { ReactElement } from "react";
-import Layout from "../components/layout";
 // import Link from "next/link";
 import { SearchIcon } from "../components/atoms/icon/index";
 import styles from "../styles/pages/top-page.module.scss";
@@ -28,7 +26,3 @@ export default function TopPage() {
     </div>
   );
 }
-
-TopPage.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
-};

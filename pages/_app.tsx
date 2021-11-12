@@ -19,6 +19,7 @@ type AppPropsWithLayout = AppProps & {
  * そうでない場合はデフォルトのlayoutを適用する
  *
  * 例）
+ * import type { ReactElement } from "react";
  * TopPage.getLayout = function getLayout(page: ReactElement) {
  * return <Layout>{page}</Layout>;
  * };
