@@ -4,8 +4,11 @@ import styles from "styles/pages/layout-container.module.scss";
 export default function Layout({ children }) {
   return (
     <div className={styles.layoutContainer}>
-      <TheHeader />
-      <main>{children}</main>
+      {/* TODO: あとで実装する、max-width:823pxで */}
+      <div className={styles.inner}>
+        <TheHeader />
+        <main>{children}</main>
+      </div>
     </div>
   );
 }
