@@ -1,10 +1,10 @@
 import App from "next/app";
-import Layout from "../components/layout"; // TODO: なぜかaliasが効かない
-import basicAuthCheck from "../lib/basicAuth";
+import Layout from "components/layout";
+import basicAuthCheck from "lib/basicAuth";
 import type { AppProps, AppContext } from "next/app";
 import type { ReactElement, ReactNode } from "react";
 import type { NextPage } from "next";
-import "/styles/globals.scss";
+import "styles/globals.scss";
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;

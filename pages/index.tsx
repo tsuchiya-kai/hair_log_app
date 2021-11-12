@@ -1,6 +1,6 @@
 // import Link from "next/link";
-import { SearchIcon } from "@components/atoms/icon/index";
-import styles from "@styles/pages/top-page.module.scss";
+import { SearchIcon } from "components/atoms/icon/index";
+import styles from "styles/pages/top-page.module.scss";
 
 export default function TopPage() {
   return (
