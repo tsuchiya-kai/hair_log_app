@@ -42,7 +42,7 @@ export default function TopPage() {
   return (
     <div className={styles.topPage}>
       <h1 className={styles.title}>カタログを検索！</h1>
-      <SearchAnimationIcon />
+      <SearchAnimationIcon className={styles.icon} />
 
       <AppInput
         className={styles.search}
