@@ -1,4 +1,5 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { useBodyScrollLock } from "hooks/useBodyScrollLock";
 import { maskContext } from "components/layout";
 import styles from "styles/components/molecules/the-menu-for-sp.module.scss";
 
@@ -19,9 +20,15 @@ export default function TheMenuForSp(props: Props) {
     setMaskIsShow(isShow);
   }, [isShow]);
 
+  const target = useRef<HTMLDivElement>(null);
+  useBodyScrollLock({
+    isActive: isShow,
+    target: target,
+  });
+
   return (
     <>
-      <section {...rest} className={classNames}>
+      <section {...rest} className={classNames} ref={target}>
         <p>SPメニューの中身は</p>
         <p>遷移先が決まったら実装します！🙇‍♂️</p>
       </section>

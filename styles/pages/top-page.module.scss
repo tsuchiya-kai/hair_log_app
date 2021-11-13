@@ -1,5 +1,21 @@
 .topPage {
+  padding-top: 64px;
+
+  @include respond(tab-port) {
+    padding-top: 24px;
+  }
+
   > .title {
     font-size: 25px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  > .icon {
+    margin-bottom: 16px;
+  }
+
+  > .search {
+    margin-bottom: 24px;
   }
 }

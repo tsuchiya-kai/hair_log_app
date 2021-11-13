@@ -1,0 +1,23 @@
+.appInput {
+  position: relative;
+
+  > .input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    font-size: 1.6rem;
+    border: 2px solid #b9b9b9;
+    border-radius: 60px;
+    outline: none;
+    padding-left: 63px;
+  }
+
+  > .icon {
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+}
