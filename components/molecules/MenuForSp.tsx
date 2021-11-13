@@ -1,4 +1,4 @@
-import { useContext, useEffect, RefObject, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { useBodyScrollLock } from "hooks/useBodyScrollLock";
 import { maskContext } from "components/layout";
 import styles from "styles/components/molecules/the-menu-for-sp.module.scss";
@@ -6,7 +6,6 @@ import styles from "styles/components/molecules/the-menu-for-sp.module.scss";
 type Props = {
   className?: string;
   isShow: boolean;
-  ref?: RefObject<HTMLElement>;
 };
 
 export default function TheMenuForSp(props: Props) {

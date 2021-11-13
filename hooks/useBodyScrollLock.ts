@@ -1,9 +1,4 @@
-import {
-  RefObject,
-  // ForwardRefExoticComponent,
-  // RefAttributes,
-  useEffect,
-} from "react";
+import { RefObject, useEffect } from "react";
 import {
   clearAllBodyScrollLocks,
   disableBodyScroll,
@@ -13,7 +8,6 @@ import {
 type Props = {
   isActive: boolean;
   target: RefObject<HTMLElement>;
-  // target: ForwardRefExoticComponent<RefAttributes<HTMLDivElement>>;
 };
 
 export function useBodyScrollLock({ isActive, target }: Props) {
