@@ -2,6 +2,7 @@ import { TheHeader, TheFooter } from "components/organisms/index";
 import styles from "styles/pages/layout-container.module.scss";
 import { createContext, useState } from "react";
 
+// 参考: https://qiita.com/Rascal823/items/0f53ffbb410505b707f8
 export const maskContext = createContext(
   {} as {
     maskIsShow: boolean;
