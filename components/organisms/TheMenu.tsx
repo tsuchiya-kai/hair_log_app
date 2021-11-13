@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { HamburgerMenuIcon } from "components/atoms/icon/index";
-import { MenuForPc } from "components/molecules/index";
+import { MenuForPc, MenuForSp } from "components/molecules/index";
 import toggleVisible from "utils/toggleVisible";
 import { useViewPort } from "hooks/useViewPort";
 import styles from "styles/components/organisms/the-menu.module.scss";
@@ -28,7 +28,7 @@ export default function TheMenu(props) {
           onMouseOut={toggleVisibleFlag}
         />
       ) : (
-        <div>SPメニュー！！</div>
+        <MenuForSp />
       )}
     </div>
   );
