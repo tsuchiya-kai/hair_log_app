@@ -8,6 +8,7 @@
   overflow-y: scroll;
   box-shadow: none;
   transform: translateX(100%);
+  transition: 0.3s;
 
   &.Show {
     transform: translate(0);

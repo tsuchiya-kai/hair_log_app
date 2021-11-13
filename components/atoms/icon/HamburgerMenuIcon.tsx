@@ -1,8 +1,16 @@
-export default function HamburgerMenuIcon(props) {
+type Props = {
+  className?: string;
+  onClick: (e: React.MouseEvent<SVGElement>) => void;
+  onMouseOver: (e: React.MouseEvent<SVGElement>) => void;
+  onMouseOut: (e: React.MouseEvent<SVGElement>) => void;
+};
+
+export default function HamburgerMenuIcon(props: Props) {
+  const { className, ...rest } = props;
   return (
     <svg
-      {...props}
-      className={props.className}
+      {...rest}
+      className={className}
       width="100%"
       height="100%"
       viewBox="0 0 24 24"

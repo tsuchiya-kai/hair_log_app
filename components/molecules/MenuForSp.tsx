@@ -3,7 +3,6 @@ import styles from "styles/components/molecules/the-menu-for-sp.module.scss";
 type Props = {
   className?: string;
   isShow: boolean;
-  onClick: (e: React.MouseEvent<HTMLElement>) => void;
 };
 
 export default function TheMenuForSp(props: Props) {

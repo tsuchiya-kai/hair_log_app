@@ -4,22 +4,32 @@ import { MenuForPc, MenuForSp } from "components/molecules/index";
 import { useViewPort } from "hooks/useViewPort";
 import styles from "styles/components/organisms/the-menu.module.scss";
 
-export default function TheMenu(props) {
+type Props = {
+  className?: string;
+};
+
+export default function TheMenu(props: Props) {
   const [pcMenuToggleState, setPcMenuToggleState] = useState<boolean>(false);
   const [spMenuToggleState, setSpMenuToggleState] = useState<boolean>(false);
 
-  const toggleVisibleFlagForPc = (e: React.MouseEvent<HTMLElement>) =>
-    setPcMenuToggleState(e.type === "mouseover");
-  const toggleVisibleFlagForSp = () => setSpMenuToggleState((prev) => !prev);
+  const toggleVisibleFlagForPc = (
+    e: React.MouseEvent<HTMLElement | SVGElement>
+  ) => setPcMenuToggleState(e.type === "mouseover");
+  const toggleVisibleFlagForSp = () => {
+    console.group("click");
+    setSpMenuToggleState((prev) => !prev);
+  };
 
   const { windowWidth } = useViewPort();
   const tabPortBreakPoint = 768;
   const isPcSize = windowWidth > tabPortBreakPoint;
+
   return (
     <div className={`${styles.theMenu} ${props.className}`}>
       <HamburgerMenuIcon
         onMouseOver={toggleVisibleFlagForPc}
         onMouseOut={toggleVisibleFlagForPc}
+        onClick={toggleVisibleFlagForSp}
       />
 
       {isPcSize ? (
@@ -30,11 +40,7 @@ export default function TheMenu(props) {
           onMouseOut={toggleVisibleFlagForPc}
         />
       ) : (
-        <MenuForSp
-          isShow={spMenuToggleState}
-          className={styles.pc}
-          onClick={toggleVisibleFlagForSp}
-        />
+        <MenuForSp isShow={spMenuToggleState} className={styles.pc} />
       )}
     </div>
   );
