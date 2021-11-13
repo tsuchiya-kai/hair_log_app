@@ -2,6 +2,7 @@
 import { SearchAnimationIcon } from "components/atoms/icon/index";
 import { AppInput } from "components/atoms/index";
 import { useState, useEffect } from "react";
+import axios from "lib/axiosIntercepted";
 import styles from "styles/pages/top-page.module.scss";
 
 export default function TopPage() {
@@ -13,25 +14,25 @@ export default function TopPage() {
   const [gitHubData, setGitHubData] = useState<any>({});
   useEffect(() => {
     if (!inputState) return;
-    const timeOutId = setTimeout(() => {
-      fetch(`https://api.github.com/users/${inputState}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.message === "Not Found") {
-            console.log("ユーザーが存在しませんでした");
-            setGitHubData({
-              name: "ユーザーが存在しません！",
-              avatar_url:
-                "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png",
-            });
-            return;
-          }
-
-          setGitHubData(data);
-        })
-        .catch((e) => {
-          console.log("gitHubアカウントの取得に失敗しました", { e });
-        });
+    const timeOutId = setTimeout(async () => {
+      try {
+        const res = await axios.get(
+          `https://api.github.com/users/${inputState}`
+        );
+        const { data } = res;
+        if (data.message === "Not Found") {
+          console.log("ユーザーが存在しませんでした");
+          setGitHubData({
+            name: "ユーザーが存在しません！",
+            avatar_url:
+              "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png",
+          });
+          return;
+        }
+        setGitHubData(data);
+      } catch (e) {
+        console.log("gitHubアカウントの取得に失敗しました", { e });
+      }
     }, 1000);
 
     return () => {
