@@ -15,10 +15,7 @@ export default function TheMenu(props: Props) {
   const toggleVisibleFlagForPc = (
     e: React.MouseEvent<HTMLElement | SVGElement>
   ) => setPcMenuToggleState(e.type === "mouseover");
-  const toggleVisibleFlagForSp = () => {
-    console.group("click");
-    setSpMenuToggleState((prev) => !prev);
-  };
+  const toggleVisibleFlagForSp = () => setSpMenuToggleState((prev) => !prev);
 
   const { windowWidth } = useViewPort();
   const tabPortBreakPoint = 768;

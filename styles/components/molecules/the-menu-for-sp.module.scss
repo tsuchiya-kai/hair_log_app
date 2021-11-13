@@ -13,18 +13,19 @@
   &.Show {
     transform: translate(0);
   }
-  // > .mask {
-  //   position: absolute;
-  //   top: 0;
-  //   right: 0;
-  //   z-index: 1;
-  //   display: none;
-  //   width: 100%;
-  //   height: 100vh;
-  //   background-color: rgba(80, 80, 80, 0.6);
-  // }
+}
 
-  // > .mask.Show {
-  //   display: unset;
-  // }
+.mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(80, 80, 80, 0.6);
+}
+
+> .mask.Show {
+  display: block;
 }
