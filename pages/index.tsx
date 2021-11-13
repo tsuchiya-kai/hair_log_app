@@ -12,6 +12,7 @@ export default function TopPage() {
    */
   const [gitHubData, setGitHubData] = useState<any>({});
   useEffect(() => {
+    if (!inputState) return;
     const timeOutId = setTimeout(() => {
       fetch(`https://api.github.com/users/${inputState}`)
         .then((res) => res.json())
