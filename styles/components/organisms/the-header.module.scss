@@ -26,9 +26,14 @@
     padding: 15px;
     cursor: pointer;
     transition: 0.3s;
+    background-color: $main-white;
   }
 
   > .wrap > .menu:hover {
     background-color: $dark-white;
+
+    @include respond(tab-port) {
+      background-color: $main-white;
+    }
   }
 }
