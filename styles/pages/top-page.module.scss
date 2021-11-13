@@ -1,5 +1,9 @@
 .topPage {
-  padding-top: 16px;
+  padding-top: 64px;
+
+  @include respond(tab-port) {
+    padding-top: 24px;
+  }
 
   > .title {
     font-size: 25px;

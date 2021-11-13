@@ -1,8 +1,8 @@
 // import Link from "next/link";
 import { SearchAnimationIcon } from "components/atoms/icon/index";
 import { AppInput } from "components/atoms/index";
-import { useState, useEffect } from "react";
-import axios from "lib/axiosIntercepted";
+import { useState } from "react";
+// import axios from "lib/axiosIntercepted";
 import styles from "styles/pages/top-page.module.scss";
 
 export default function TopPage() {
@@ -11,34 +11,34 @@ export default function TopPage() {
   /**
    * テストです
    */
-  const [gitHubData, setGitHubData] = useState<any>({});
-  useEffect(() => {
-    if (!inputState) return;
-    const timeOutId = setTimeout(async () => {
-      try {
-        const res = await axios.get(
-          `https://api.github.com/users/${inputState}`
-        );
-        const { data } = res;
-        if (data.message === "Not Found") {
-          console.log("ユーザーが存在しませんでした");
-          setGitHubData({
-            name: "ユーザーが存在しません！",
-            avatar_url:
-              "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png",
-          });
-          return;
-        }
-        setGitHubData(data);
-      } catch (e) {
-        console.log("gitHubアカウントの取得に失敗しました", { e });
-      }
-    }, 1000);
+  // const [gitHubData, setGitHubData] = useState<any>({});
+  // useEffect(() => {
+  //   if (!inputState) return;
+  //   const timeOutId = setTimeout(async () => {
+  //     try {
+  //       const res = await axios.get(
+  //         `https://api.github.com/users/${inputState}`
+  //       );
+  //       const { data } = res;
+  //       if (data.message === "Not Found") {
+  //         console.log("ユーザーが存在しませんでした");
+  //         setGitHubData({
+  //           name: "ユーザーが存在しません！",
+  //           avatar_url:
+  //             "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png",
+  //         });
+  //         return;
+  //       }
+  //       setGitHubData(data);
+  //     } catch (e) {
+  //       console.log("gitHubアカウントの取得に失敗しました", { e });
+  //     }
+  //   }, 1000);
 
-    return () => {
-      clearTimeout(timeOutId);
-    };
-  }, [inputState]);
+  //   return () => {
+  //     clearTimeout(timeOutId);
+  //   };
+  // }, [inputState]);
 
   return (
     <div className={styles.topPage}>
@@ -52,11 +52,11 @@ export default function TopPage() {
         onChange={(e) => setInputState(e.target.value)}
       />
 
-      <h2>検索結果：</h2>
+      {/* <h2>検索結果：</h2>
       <img src={gitHubData?.avatar_url} alt="" />
       {Object.values(gitHubData).map((data, i) => (
         <p key={i}>{data}</p>
-      ))}
+      ))} */}
     </div>
   );
 }
