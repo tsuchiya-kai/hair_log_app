@@ -5,10 +5,10 @@ import { useViewPort } from "hooks/useViewPort";
 import styles from "styles/components/organisms/the-menu.module.scss";
 
 export default function TheMenu(props) {
-  const [menuToggleState, setMenuToggleState] = useState<boolean>(false);
+  const [pcMenuToggleState, setPcMenuToggleState] = useState<boolean>(false);
 
-  const toggleVisibleFlag = (e: React.MouseEvent<HTMLElement>) =>
-    setMenuToggleState(e.type === "mouseover");
+  const toggleVisibleFlagForPc = (e: React.MouseEvent<HTMLElement>) =>
+    setPcMenuToggleState(e.type === "mouseover");
 
   const { windowWidth } = useViewPort();
   const tabPortBreakPoint = 768;
@@ -16,16 +16,16 @@ export default function TheMenu(props) {
   return (
     <div className={`${styles.theMenu} ${props.className}`}>
       <HamburgerMenuIcon
-        onMouseOver={toggleVisibleFlag}
-        onMouseOut={toggleVisibleFlag}
+        onMouseOver={toggleVisibleFlagForPc}
+        onMouseOut={toggleVisibleFlagForPc}
       />
 
       {isPcSize ? (
         <MenuForPc
-          isShow={menuToggleState}
+          isShow={pcMenuToggleState}
           className={styles.pc}
-          onMouseOver={toggleVisibleFlag}
-          onMouseOut={toggleVisibleFlag}
+          onMouseOver={toggleVisibleFlagForPc}
+          onMouseOut={toggleVisibleFlagForPc}
         />
       ) : (
         <MenuForSp />
