@@ -10,6 +10,10 @@ const users = [
     user: "reviewer",
     password: "dHY6jR4d6XzVu5LyvZ7F9925OA74seGh",
   },
+  {
+    user: "test",
+    password: "test",
+  },
 ];
 
 export default initializeBasicAuth({ users });
