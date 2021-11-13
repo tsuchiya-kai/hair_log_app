@@ -15,6 +15,7 @@ export default function TheMenuForSp(props: Props) {
     <section {...rest} className={classNames}>
       <p>SPメニューの中身は</p>
       <p>遷移先が決まったら実装します！🙇‍♂️</p>
+      <div className={`${styles.mask} ${isShow ? styles.Show : ""}`} />
     </section>
   );
 }
