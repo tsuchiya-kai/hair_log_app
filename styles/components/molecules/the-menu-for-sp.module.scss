@@ -1,9 +1,15 @@
 .theMenuForSp {
-  width: 600px;
-  height: 500px; //仮
-  box-shadow: 0 0 10px rgba(18, 18, 18, 0.16);
-  padding: 16px;
-  z-index: 1;
-  background-color: $main-white;
-  transition: 0.5s;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  width: 304px;
+  height: 100vh;
+  overflow-y: scroll;
+  box-shadow: none;
+  transform: translateX(100%);
+
+  &.Show {
+    transform: translate(0);
+  }
 }

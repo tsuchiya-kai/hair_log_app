@@ -6,9 +6,11 @@ import styles from "styles/components/organisms/the-menu.module.scss";
 
 export default function TheMenu(props) {
   const [pcMenuToggleState, setPcMenuToggleState] = useState<boolean>(false);
+  const [spMenuToggleState, setSpMenuToggleState] = useState<boolean>(false);
 
   const toggleVisibleFlagForPc = (e: React.MouseEvent<HTMLElement>) =>
     setPcMenuToggleState(e.type === "mouseover");
+  const toggleVisibleFlagForSp = () => setSpMenuToggleState((prev) => !prev);
 
   const { windowWidth } = useViewPort();
   const tabPortBreakPoint = 768;
@@ -28,7 +30,11 @@ export default function TheMenu(props) {
           onMouseOut={toggleVisibleFlagForPc}
         />
       ) : (
-        <MenuForSp />
+        <MenuForSp
+          isShow={spMenuToggleState}
+          className={styles.pc}
+          onClick={toggleVisibleFlagForSp}
+        />
       )}
     </div>
   );
