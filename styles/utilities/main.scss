@@ -5,6 +5,10 @@
   height: 100% !important;
 }
 
+._invisible {
+  visibility: hidden;
+}
+
 @for $i from 1 through 20 {
   /* stylelint-disable-next-line */
   ._ml-#{$i} {
