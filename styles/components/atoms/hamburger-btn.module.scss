@@ -1,0 +1,60 @@
+.hamburgerButton {
+  > .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  > .wrap.Active {
+    @include respond(tab-port) {
+      top: 10px;
+      height: 46px;
+      background-color: unset;
+    }
+  }
+
+  > .wrap > .span,
+  > .wrap > .span::before,
+  > .wrap > .span::after {
+    position: absolute;
+    display: block;
+    width: 28px;
+    height: 3px;
+    content: "";
+    background-color: $main-black;
+    border-radius: 3px;
+    transition: all 0.3s;
+  }
+
+  > .wrap > .span::before {
+    bottom: 8px;
+  }
+
+  > .wrap > .span::after {
+    top: 8px;
+  }
+
+  > .wrap > .span.Active {
+    @include respond(tab-port) {
+      background-color: transparent;
+    }
+  }
+
+  > .wrap > .span.Active::before {
+    @include respond(tab-port) {
+      bottom: 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  > .wrap > .span.Active::after {
+    @include respond(tab-port) {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}
