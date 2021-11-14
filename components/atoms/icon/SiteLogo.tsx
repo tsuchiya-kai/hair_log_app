@@ -9,6 +9,7 @@ export default function SiteLogo(props: Props) {
     <img
       className={`${styles.siteIcon} ${props.className ?? ""}`}
       src="/images/sample_logo.png"
+      alt="サイトロゴ"
     />
   );
 }

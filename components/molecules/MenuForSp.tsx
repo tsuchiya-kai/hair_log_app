@@ -18,7 +18,7 @@ export default function TheMenuForSp(props: Props) {
 
   useEffect(() => {
     setMaskIsShow(isShow);
-  }, [isShow]);
+  }, [isShow, setMaskIsShow]);
 
   const target = useRef<HTMLDivElement>(null);
   useBodyScrollLock({

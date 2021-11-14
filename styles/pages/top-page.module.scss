@@ -1,21 +1,77 @@
 .topPage {
   padding-top: 64px;
+  padding-bottom: 80px;
 
   @include respond(tab-port) {
     padding-top: 24px;
   }
 
+  > .icon {
+    display: flex;
+    margin: 0 auto;
+
+    @include respond(tab-port) {
+      width: 200px;
+    }
+  }
+
   > .title {
     font-size: 25px;
-    margin-bottom: 16px;
+    line-height: 1;
+    margin-bottom: 32px;
     text-align: center;
+
+    @include respond(tab-port) {
+      margin-bottom: 24px;
+    }
   }
 
-  > .icon {
+  > .sticky {
+    position: sticky;
+    top: 60px;
+    background-color: $main-white;
+    padding-bottom: 8px;
+    margin-bottom: 32px;
+    z-index: 1;
+  }
+
+  > .subtitle {
+    font-size: 2rem;
     margin-bottom: 16px;
+    border-top: 1px solid $lite-gray;
+    padding-top: 8px;
+    color: $main-black;
   }
 
-  > .search {
-    margin-bottom: 24px;
+  > .result {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 16px;
+    column-gap: 16px;
+    justify-content: space-evenly;
+    justify-items: center;
+    margin: 0 auto;
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  > .result > .content {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+  }
+
+  > .result > .content > .image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

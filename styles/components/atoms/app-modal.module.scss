@@ -1,0 +1,49 @@
+.appModal {
+  > .body {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 3;
+    padding: 16px;
+    background-color: $main-white;
+    border-radius: 3px;
+  }
+
+  > .body > .close {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+    appearance: none;
+    margin-left: auto;
+    display: block;
+  }
+
+  > .body > .content {
+    z-index: 4;
+    background-color: $main-white;
+  }
+
+  > .body > .content.Scroll {
+    overflow-y: scroll;
+  }
+
+  .mask {
+    background-color: rgb(80 80 80 / 60%);
+    display: none;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  > .mask.Show {
+    display: block;
+  }
+}
