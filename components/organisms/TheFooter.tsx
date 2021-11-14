@@ -9,7 +9,7 @@ export default function TheFooter(props: Props) {
   const myBirthYear = 1998;
   const age = dayjs().year() - myBirthYear;
   return (
-    <header className={`${styles.theFooter} ${props.className}`}>
+    <header className={`${styles.theFooter} ${props.className ?? ""}`}>
       <div className={styles.inner}>
         <article className={styles.profile}>
           <h2 className={styles.title}>Developer</h2>

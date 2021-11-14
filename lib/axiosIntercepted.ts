@@ -9,8 +9,8 @@ instance.interceptors.request.use(
     // config.headers.common["Authorization"] = "Bearer " + process.env.TOKEN;
     return config;
   },
-  (error) => {
-    Promise.reject(error);
+  (error: unknown) => {
+    if (error instanceof Error) return Promise.reject(error);
   }
 );
 

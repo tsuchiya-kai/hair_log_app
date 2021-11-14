@@ -11,7 +11,7 @@ type Props = {
 export default function AppInput(props: Props) {
   const { className, state, placeholder, ...rest } = props;
   return (
-    <div className={`${styles.appInput} ${className}`}>
+    <div className={`${styles.appInput} ${className ?? ""}`}>
       <input
         className={styles.input}
         value={state}

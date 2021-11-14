@@ -10,7 +10,7 @@ type Props = {
 export default function TheMenuForPc(props: Props) {
   // NOTE: https://reactjs.org/warnings/unknown-prop.html
   const { className, isShow, ...rest } = props;
-  const classNames = `${styles.theMenuForPc} ${className} ${
+  const classNames = `${styles.theMenuForPc} ${className ?? ""} ${
     isShow ? styles.Show : ""
   }`;
 
