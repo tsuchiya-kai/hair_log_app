@@ -1,9 +1,10 @@
 // import Link from "next/link";
+import { useState, useRef } from "react";
 import { SearchAnimationIcon } from "components/atoms/icon/index";
 import { AppInput } from "components/atoms/index";
 import { TopPageModal } from "components/organisms/index";
-import { useState } from "react";
 // import axios from "lib/axiosIntercepted";
+import useIntersection from "hooks/useIntersection";
 import styles from "styles/pages/top-page.module.scss";
 
 export default function TopPage() {
@@ -11,6 +12,12 @@ export default function TopPage() {
   const [modalState, setModalState] = useState(false);
   const switchModal = () => setModalState((prev) => !prev);
 
+  //最近の投稿を取得
+  const loaderRef = useRef<HTMLDivElement>(
+    null
+  ) as React.MutableRefObject<HTMLDivElement>;
+  const { intersecting } = useIntersection(loaderRef);
+  console.log({ intersecting });
   return (
     <>
       <div className={styles.topPage}>
@@ -38,6 +45,7 @@ export default function TopPage() {
             );
           })}
         </section>
+        <div ref={loaderRef}>ローダー！！！！！！！</div>
       </div>
       <TopPageModal isShow={modalState} switchFunc={switchModal} />
     </>
