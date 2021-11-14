@@ -81,4 +81,16 @@
     left: 0;
     margin: auto;
   }
+
+  > .result > .loader > .resultloader {
+    margin: 0 auto;
+  }
+
+  > .loaderwrap {
+    padding: 32px 0;
+  }
+
+  > .loaderwrap > .infinityloader {
+    margin: 0 auto;
+  }
 }
