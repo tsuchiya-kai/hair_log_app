@@ -42,9 +42,8 @@ export default function TopPage() {
 
   return (
     <div className={styles.topPage}>
-      <h1 className={styles.title}>カタログを検索！</h1>
       <SearchAnimationIcon className={styles.icon} />
-
+      <h1 className={styles.title}>カタログを検索！</h1>
       <AppInput
         className={styles.search}
         placeholder="ヘアカタログを検索"

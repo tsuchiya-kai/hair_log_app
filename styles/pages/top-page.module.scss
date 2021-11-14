@@ -5,17 +5,27 @@
     padding-top: 24px;
   }
 
-  > .title {
-    font-size: 25px;
-    margin-bottom: 16px;
-    text-align: center;
+  > .icon {
+    display: flex;
+    margin: 0 auto;
+
+    @include respond(tab-port) {
+      width: 200px;
+    }
   }
 
-  > .icon {
-    margin-bottom: 16px;
+  > .title {
+    font-size: 25px;
+    margin-bottom: 32px;
+    text-align: center;
+    line-height: 1;
+
+    @include respond(tab-port) {
+      margin-bottom: 24px;
+    }
   }
 
   > .search {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 }
