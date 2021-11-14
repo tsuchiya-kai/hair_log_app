@@ -54,13 +54,13 @@ export default function TopPage() {
       </div>
 
       <h2 className={styles.subtitle}>最近の投稿</h2>
-      <section className={styles.resulewrap}>
+      <section className={styles.result}>
         {[...(Array(20) as undefined[])].map((el, i) => {
           return (
             <div className={styles.content} key={i}>
               <img
                 className={styles.image}
-                src="https://placeimg.com/300/200/any"
+                src={`https://unsplash.it/${i + 1}00/100`}
                 alt="検索結果画像"
               />
             </div>
