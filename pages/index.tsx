@@ -4,7 +4,6 @@ import { SearchAnimationIcon, LoaderDom } from "components/atoms/icon/index";
 import { AppInput } from "components/atoms/index";
 import { TopPageModal } from "components/organisms/index";
 import axios from "lib/axiosIntercepted";
-// import axios from "axios";
 import useIntersection from "hooks/useIntersection";
 import styles from "styles/pages/top-page.module.scss";
 
