@@ -1,7 +1,11 @@
 import dayjs from "dayjs";
 import styles from "styles/components/organisms/the-footer.module.scss";
 
-export default function TheFooter(props) {
+type Props = {
+  className?: string;
+};
+
+export default function TheFooter(props: Props) {
   const myBirthYear = 1998;
   const age = dayjs().year() - myBirthYear;
   return (

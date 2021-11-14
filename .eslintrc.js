@@ -23,7 +23,6 @@ module.exports = {
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/ba-ts-comment": "off",
     "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
     "prettier/prettier": "error",
   },
   settings: {

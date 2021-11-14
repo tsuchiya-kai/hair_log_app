@@ -2,7 +2,11 @@ import { SiteLogo } from "components/atoms/icon/index";
 import { TheMenu } from "components/organisms/index";
 import styles from "styles/components/organisms/the-header.module.scss";
 
-export default function TheHeader(props) {
+type Props = {
+  className?: string;
+};
+
+export default function TheHeader(props: Props) {
   return (
     <>
       <header className={`${styles.theHeader} ${props.className}`}>

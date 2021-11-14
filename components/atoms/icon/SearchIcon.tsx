@@ -1,4 +1,7 @@
-export default function About(props) {
+type Props = {
+  className?: string;
+};
+export default function About(props: Props) {
   return (
     <svg
       className={props.className}
