@@ -60,13 +60,11 @@ export default function TopPage() {
           />
         </div>
 
-        <button onClick={switchModal}>テストボタン</button>
-
         <h2 className={styles.subtitle}>人気の投稿</h2>
         <section className={styles.result}>
           {[...(Array(20) as undefined[])].map((el, i) => {
             return (
-              <div className={styles.content} key={i}>
+              <div className={styles.content} key={i} onClick={switchModal}>
                 <img
                   className={styles.image}
                   src={`https://unsplash.it/${i + 1}00/100`}

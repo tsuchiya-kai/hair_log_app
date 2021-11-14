@@ -1,8 +1,11 @@
 import { ReactNode, useRef, useContext, useEffect } from "react";
+import { CrossMarkIcon } from "components/atoms/icon/index";
 import { useBodyScrollLock } from "hooks/useBodyScrollLock";
 import { maskContext } from "components/layout";
 import styles from "styles/components/atoms/app-modal.module.scss";
-
+/**
+ * TODO: backgroundをクリックした時もモーダルが閉じるようにしたい
+ */
 type Props = {
   isShow: boolean;
   children: ReactNode;
@@ -31,7 +34,10 @@ export default function AppModal({
     <>
       {isShow ? (
         <div ref={target} className={styles.appModal}>
-          <button onClick={switchFunc}>閉じる</button>
+          <button onClick={switchFunc} className={styles.close}>
+            <CrossMarkIcon />
+          </button>
+
           <div className={`${styles.content} ${isScroll ? "Scroll" : ""}`}>
             {children}
           </div>
