@@ -1,0 +1,26 @@
+.appModal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  padding: 16px;
+  background-color: $main-white;
+  border-radius: 3px;
+
+  > .content {
+    z-index: 3;
+    background-color: $main-white;
+  }
+
+  > .content.Scroll {
+    overflow-y: scroll;
+  }
+}
