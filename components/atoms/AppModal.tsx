@@ -1,7 +1,6 @@
 import { ReactNode, useRef } from "react";
 import { CrossMarkIcon } from "components/atoms/icon/index";
 import { useBodyScrollLock } from "hooks/useBodyScrollLock";
-// import { maskContext } from "components/layout"; useContext, useEffect
 import styles from "styles/components/atoms/app-modal.module.scss";
 /**
  * TODO: backgroundをクリックした時もモーダルが閉じるようにしたい
@@ -18,12 +17,6 @@ export default function AppModal({
   isScroll,
   switchFunc,
 }: Props) {
-  // const { setMaskIsShow } = useContext(maskContext);
-
-  // useEffect(() => {
-  //   setMaskIsShow(isShow);
-  // }, [isShow, setMaskIsShow]);
-
   const target = useRef<HTMLDivElement>(null);
   useBodyScrollLock({
     isActive: isShow,
