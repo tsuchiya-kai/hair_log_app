@@ -4,9 +4,9 @@
   padding: 16px 0 32px;
 
   > .inner {
+    margin: 0 auto;
     max-width: 832px;
     padding: 0 32px;
-    margin: 0 auto;
   }
 
   > .inner > .profile {
@@ -19,8 +19,8 @@
 
   > .inner > .profile > .image {
     border-radius: 100%;
-    width: 100px;
     height: 100px;
+    width: 100px;
   }
 
   > .inner > .profile > .text {

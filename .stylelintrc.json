@@ -10,13 +10,18 @@
           "apply",
           "variants",
           "responsive",
-          "screen"
+          "screen",
+          "mixin",
+          "if",
+          "for",
+          "include"
         ]
       }
     ],
     "string-quotes": "single",
     "order/properties-alphabetical-order": true,
-    "font-family-name-quotes": null
+    "font-family-name-quotes": null,
+    "selector-class-pattern": "^[a-zA-Z][a-zA-Z0-9]+$"
   },
   "ignoreFiles": ["**/node_modules/**"]
 }
