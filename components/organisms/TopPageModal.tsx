@@ -1,4 +1,5 @@
 import { AppModal } from "components/atoms/index";
+import styles from "styles/components/organisms/top-page-modal.module.scss";
 
 type Props = {
   isShow: boolean;
@@ -6,7 +7,11 @@ type Props = {
 };
 export default function TopPageModal({ isShow, switchFunc }: Props) {
   return (
-    <AppModal isShow={isShow} switchFunc={switchFunc}>
+    <AppModal
+      className={styles.topPageModal}
+      isShow={isShow}
+      switchFunc={switchFunc}
+    >
       {"テスト"}
     </AppModal>
   );

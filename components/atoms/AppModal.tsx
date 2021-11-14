@@ -10,12 +10,14 @@ type Props = {
   children: ReactNode;
   isScroll?: boolean;
   switchFunc: () => void;
+  className?: string;
 };
 export default function AppModal({
   children,
   isShow,
   isScroll,
   switchFunc,
+  className,
 }: Props) {
   const target = useRef<HTMLDivElement>(null);
   useBodyScrollLock({
@@ -26,8 +28,8 @@ export default function AppModal({
   return (
     <>
       {isShow ? (
-        <div className={styles.appModal}>
-          <div ref={target} className={styles.body}>
+        <div className={styles.appModal} ref={target}>
+          <div className={`${styles.body}  ${className ? className : ""}`}>
             <button onClick={switchFunc} className={styles.close}>
               <CrossMarkIcon />
             </button>

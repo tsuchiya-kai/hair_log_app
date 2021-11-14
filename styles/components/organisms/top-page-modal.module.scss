@@ -1,0 +1,9 @@
+.topPageModal {
+  width: 50%;
+  height: 60vh;
+
+  @include respond(tab-port) {
+    width: 90%;
+    height: 85vh;
+  }
+}
