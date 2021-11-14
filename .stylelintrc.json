@@ -1,4 +1,5 @@
 {
+  "customSyntax": "postcss-syntax",
   "plugins": ["stylelint-order"],
   "extends": ["stylelint-config-standard"],
   "rules": {
@@ -10,13 +11,18 @@
           "apply",
           "variants",
           "responsive",
-          "screen"
+          "screen",
+          "mixin",
+          "if",
+          "for",
+          "include"
         ]
       }
     ],
     "string-quotes": "single",
     "order/properties-alphabetical-order": true,
-    "font-family-name-quotes": null
+    "font-family-name-quotes": null,
+    "selector-class-pattern": "^([a-zA-Z][a-zA-Z0-9])||(_[a-z])+$"
   },
-  "ignoreFiles": ["**/node_modules/**"]
+  "ignoreFiles": ["**/node_modules/**", "styles/generic/**"]
 }

@@ -1,13 +1,13 @@
 .theMenuForPc {
-  width: 600px;
-  height: 500px; //仮
-  box-shadow: 0 0 10px rgba(18, 18, 18, 0.16);
-  padding: 16px;
-  z-index: 1;
   background-color: $main-white;
-  transition: 0.5s;
+  box-shadow: 0 0 10px rgb(18 18 18 / 16%);
+  height: 500px; //仮
   opacity: 0%;
+  padding: 16px;
+  transition: 0.5s;
   visibility: hidden;
+  width: 600px;
+  z-index: 1;
 
   &.Show {
     opacity: 100%;

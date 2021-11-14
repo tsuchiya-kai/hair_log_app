@@ -1,19 +1,19 @@
 .theHeader {
-  width: 100%;
+  align-items: center;
   background-color: $main-white;
+  display: flex;
+  justify-content: center;
   position: fixed;
   top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
   z-index: 2;
 
   > .wrap {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    display: flex;
     height: 60px;
+    justify-content: space-between;
+    max-width: 1200px;
     width: 100%;
   }
 
@@ -26,12 +26,12 @@
   }
 
   > .wrap > .menu {
-    height: 100%;
-    width: 90px;
-    padding: 15px;
-    cursor: pointer;
-    transition: 0.3s;
     background-color: $main-white;
+    cursor: pointer;
+    height: 100%;
+    padding: 15px;
+    transition: 0.3s;
+    width: 90px;
   }
 
   > .wrap > .menu:hover {

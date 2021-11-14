@@ -10,7 +10,7 @@ type Props = {
 
 export default function TheMenuForSp(props: Props) {
   const { className, isShow, ...rest } = props;
-  const classNames = `${styles.theMenuForSp} ${className} ${
+  const classNames = `${styles.theMenuForSp} ${className ?? ""} ${
     isShow ? styles.Show : ""
   }`;
 

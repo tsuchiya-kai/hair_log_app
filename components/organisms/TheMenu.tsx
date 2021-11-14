@@ -19,10 +19,10 @@ export default function TheMenu(props: Props) {
 
   const { windowWidth } = useViewPort();
   const tabPortBreakPoint = 768;
-  const isPcSize = windowWidth > tabPortBreakPoint;
+  const isPcSize = windowWidth ? windowWidth > tabPortBreakPoint : false;
 
   return (
-    <div className={`${styles.theMenu} ${props.className}`}>
+    <div className={`${styles.theMenu} ${props.className ?? ""}`}>
       <HamburgerMenuIcon
         onMouseOver={toggleVisibleFlagForPc}
         onMouseOut={toggleVisibleFlagForPc}

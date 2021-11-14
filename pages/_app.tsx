@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { req, res } = appContext.ctx;
   if (req && res) {
-    await basicAuthCheck(req, res);
+    basicAuthCheck(req, res);
   }
 
   const appProps = await App.getInitialProps(appContext);

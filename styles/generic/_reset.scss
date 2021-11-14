@@ -1,3 +1,4 @@
+/* stylelint-disable */
 /*
 html5doctor.com Reset Stylesheet
 v1.6.1
@@ -23,8 +24,8 @@ blockquote,
 pre,
 abbr,
 address,
-cite,
 code,
+cite,
 del,
 dfn,
 em,
@@ -116,7 +117,7 @@ blockquote::before,
 blockquote::after,
 q::before,
 q::after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -178,3 +179,4 @@ input,
 select {
   vertical-align: middle;
 }
+/* stylelint-enable */
