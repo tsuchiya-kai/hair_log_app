@@ -1,4 +1,5 @@
 // import Link from "next/link";
+// import Link from "next/link";
 import { SearchAnimationIcon } from "components/atoms/icon/index";
 import { AppInput } from "components/atoms/index";
 import { useState } from "react";
@@ -51,11 +52,12 @@ export default function TopPage() {
         onChange={(e) => setInputState(e.target.value)}
       />
 
-      {/* <h2>検索結果：</h2>
-      <img src={gitHubData?.avatar_url} alt="" />
-      {Object.values(gitHubData).map((data, i) => (
-        <p key={i}>{data}</p>
-      ))} */}
+      <h2>最近の投稿</h2>
+      <section>
+        <div>
+          <img src="https://placeimg.com/300/200/any" alt="検索結果画像" />
+        </div>
+      </section>
     </div>
   );
 }

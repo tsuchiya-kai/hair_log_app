@@ -26,6 +26,7 @@ module.exports = {
   rules: {
     "react/react-in-jsx-scope": "off",
     "prettier/prettier": "error",
+    "@next/next/no-img-element": "off", //あとで最適化する
   },
   settings: {
     React: {

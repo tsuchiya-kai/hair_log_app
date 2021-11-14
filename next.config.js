@@ -13,6 +13,9 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "styles")],
     prependData: `@import "global-variables.scss";`,
   },
+  images: {
+    domains: ["placeimg.com"],
+  },
 };
 
 module.exports = nextConfig;
