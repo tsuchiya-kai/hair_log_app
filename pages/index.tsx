@@ -45,18 +45,34 @@ export default function TopPage() {
     <div className={styles.topPage}>
       <SearchAnimationIcon className={styles.icon} />
       <h1 className={styles.title}>カタログを検索！</h1>
-      <AppInput
-        className={styles.search}
-        placeholder="ヘアカタログを検索"
-        state={inputState}
-        onChange={(e) => setInputState(e.target.value)}
-      />
+      <div className={styles.sticky}>
+        <AppInput
+          placeholder="ヘアカタログを検索"
+          state={inputState}
+          onChange={(e) => setInputState(e.target.value)}
+        />
+      </div>
 
-      <h2>最近の投稿</h2>
-      <section>
-        <div>
-          <img src="https://placeimg.com/300/200/any" alt="検索結果画像" />
-        </div>
+      <h2 className={styles.subtitle}>最近の投稿</h2>
+      <section className={styles.resulewrap}>
+        {[...(Array(20) as undefined[])].map((el, i) => {
+          return (
+            <div className={styles.content} key={i}>
+              <img
+                className={styles.image}
+                src="https://placeimg.com/300/200/any"
+                alt="検索結果画像"
+              />
+            </div>
+          );
+        })}
+        {/* <div className={styles.content}>
+          <img
+            className={styles.image}
+            src="https://placeimg.com/300/200/any"
+            alt="検索結果画像"
+          />
+        </div> */}
       </section>
     </div>
   );
