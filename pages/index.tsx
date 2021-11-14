@@ -1,5 +1,4 @@
 // import Link from "next/link";
-// import Image from "next/image";
 import { SearchAnimationIcon } from "components/atoms/icon/index";
 import { AppInput } from "components/atoms/index";
 import { TopPageModal } from "components/organisms/index";

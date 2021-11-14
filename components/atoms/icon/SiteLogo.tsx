@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Urls from "utils/urls";
 import styles from "styles/components/atoms/site-icon.module.scss";
 
 type Props = {
@@ -5,11 +7,19 @@ type Props = {
 };
 
 export default function SiteLogo(props: Props) {
+  const { topPageUrl } = Urls;
+
   return (
-    <img
-      className={`${styles.siteIcon} ${props.className ?? ""}`}
-      src="/images/sample_logo.png"
-      alt="サイトロゴ"
-    />
+    <div className={props.className ?? ""}>
+      <Link href={topPageUrl}>
+        <a className="_height100">
+          <img
+            className={`${styles.siteIcon}`}
+            src="/images/sample_logo.png"
+            alt="サイトロゴ"
+          />
+        </a>
+      </Link>
+    </div>
   );
 }

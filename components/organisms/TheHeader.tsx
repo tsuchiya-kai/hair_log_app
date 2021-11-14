@@ -12,6 +12,7 @@ export default function TheHeader(props: Props) {
       <header className={`${styles.theHeader} ${props.className ?? ""}`}>
         <div className={styles.wrap}>
           <SiteLogo className={styles.logo} />
+
           <TheMenu className={styles.menu} />
         </div>
       </header>

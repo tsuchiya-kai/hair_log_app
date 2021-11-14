@@ -19,6 +19,7 @@
 
   > .wrap > .logo {
     margin-left: 30px;
+    height: 100%;
 
     @include respond(tab-port) {
       margin-left: 20px;

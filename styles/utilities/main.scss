@@ -1,6 +1,9 @@
 ._bold {
   font-weight: bold;
 }
+._height100 {
+  height: 100% !important;
+}
 
 @for $i from 1 through 20 {
   /* stylelint-disable-next-line */
