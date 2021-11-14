@@ -1,5 +1,6 @@
 .topPage {
   padding-top: 64px;
+  padding-bottom: 80px;
 
   @include respond(tab-port) {
     padding-top: 24px;
@@ -31,6 +32,7 @@
     background-color: $main-white;
     padding-bottom: 8px;
     margin-bottom: 32px;
+    z-index: 1;
   }
 
   > .subtitle {
@@ -51,6 +53,10 @@
     justify-items: center;
     padding: 0 20px;
     margin: 0 auto;
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   > .result > .content {

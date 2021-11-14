@@ -1,5 +1,5 @@
 // import Link from "next/link";
-// import Link from "next/link";
+// import Image from "next/image";
 import { SearchAnimationIcon } from "components/atoms/icon/index";
 import { AppInput } from "components/atoms/index";
 import { useState } from "react";
@@ -53,7 +53,7 @@ export default function TopPage() {
         />
       </div>
 
-      <h2 className={styles.subtitle}>最近の投稿</h2>
+      <h2 className={styles.subtitle}>人気の投稿</h2>
       <section className={styles.result}>
         {[...(Array(20) as undefined[])].map((el, i) => {
           return (

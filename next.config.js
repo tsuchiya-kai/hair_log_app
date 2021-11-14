@@ -14,7 +14,7 @@ const nextConfig = {
     prependData: `@import "global-variables.scss";`,
   },
   images: {
-    domains: ["unsplash.com"],
+    domains: ["unsplash.it"],
   },
 };
 
