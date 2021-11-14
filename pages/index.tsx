@@ -1,6 +1,6 @@
 // import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-import { SearchAnimationIcon } from "components/atoms/icon/index";
+import { SearchAnimationIcon, LoaderDom } from "components/atoms/icon/index";
 import { AppInput } from "components/atoms/index";
 import { TopPageModal } from "components/organisms/index";
 import axios from "lib/axiosIntercepted";
@@ -68,12 +68,14 @@ export default function TopPage() {
               );
             })
           ) : (
-            <div>ローダー</div>
+            <div className={styles.loader}>
+              <LoaderDom />
+            </div>
           )}
         </section>
 
         <div ref={loaderRef} className={recent ? "" : "_invisible"}>
-          ローダー！！！！！！！
+          <LoaderDom />
         </div>
       </div>
       <TopPageModal isShow={modalState} switchFunc={switchModal} />
