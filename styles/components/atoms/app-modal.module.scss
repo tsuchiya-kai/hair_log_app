@@ -1,18 +1,20 @@
 .appModal {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  z-index: 2;
-  width: 400px;
-  height: 500px;
-  padding: 16px;
-  background-color: $main-white;
-  border-radius: 3px;
+  > .body {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 2;
+    width: 400px;
+    height: 500px;
+    padding: 16px;
+    background-color: $main-white;
+    border-radius: 3px;
+  }
 
-  > .close {
+  > .body > .close {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -23,12 +25,27 @@
     display: block;
   }
 
-  > .content {
+  > .body > .content {
     z-index: 3;
     background-color: $main-white;
   }
 
-  > .content.Scroll {
+  > .body > .content.Scroll {
     overflow-y: scroll;
+  }
+
+  .mask {
+    background-color: rgb(80 80 80 / 60%);
+    display: none;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  > .mask.Show {
+    display: block;
   }
 }
