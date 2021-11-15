@@ -15,7 +15,7 @@ instance.interceptors.request.use(
 );
 
 instance.interceptors.response.use((response) => {
-  console.log(response);
+  console.log("from axios interceptor response methods console!", { response });
   return response;
 });
 

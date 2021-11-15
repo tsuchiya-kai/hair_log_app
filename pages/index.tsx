@@ -7,7 +7,7 @@ import axios from "lib/axiosIntercepted";
 import { AxiosResponse } from "axios";
 import useIntersection from "hooks/useIntersection";
 import styles from "styles/pages/top-page.module.scss";
-import { debounce } from "lodash";
+// import { debounce } from "lodash";
 
 export default function TopPage() {
   const [inputState, setInputState] = useState("");
@@ -23,42 +23,33 @@ export default function TopPage() {
   ) as React.MutableRefObject<HTMLDivElement>;
   const { intersecting } = useIntersection(loaderRef);
   const [page, setPage] = useState<number>();
-
+  const [isLastPage, setLastPage] = useState<boolean>(false);
   const [recent, setRecent] = useState<RecentData[]>([]);
 
-  // 初回fetch
   useEffect(() => {
-    const fetchRecent = async () => {
-      const endpoint = "/api/posts/recent";
-      // const endpoint = ""/最近の投稿のendpoint" + `${page ? `?page=${page}` : ""}`;
-      const res: AxiosResponse<RecentResponseData> =
-        await axios.get<RecentResponseData>(endpoint);
-      setRecent(res.data.data);
-    };
-    void fetchRecent();
-    setPage((prev) => (prev ? prev + 1 : 1));
-  }, []);
+    if (intersecting && !isLastPage) {
+      console.log("発火");
 
-  useEffect(() => {
-    if (intersecting) {
-      debounce(() => {
-        const fetchRecent = async () => {
-          const endpoint =
-            "/api/posts/recent" + `${page ? `?page=${page}` : ""}`;
-          const res: AxiosResponse<RecentResponseData> =
-            await axios.get<RecentResponseData>(endpoint);
+      const fetchRecent = async () => {
+        const endpoint = "/api/posts/recent" + `${page ? `?page=${page}` : ""}`;
+        const res: AxiosResponse<RecentResponseData> =
+          await axios.get<RecentResponseData>(endpoint);
+        const { data } = res;
 
-          setRecent((prev) => {
-            if (prev) return [...prev, ...res.data.data];
-            return [...res.data.data];
-          });
+        setRecent((prev) => {
+          if (prev) return [...prev, ...data.data];
+          return [...data.data];
+        });
 
-          setPage((prev) => (prev ? prev + 1 : 1));
-        };
-        void fetchRecent();
-      }, 500)();
+        setPage((prev) => (prev ? prev + 1 : 1));
+        const { total_page } = data;
+        setLastPage(page === total_page);
+        console.log({ isLastPage });
+      };
+
+      void fetchRecent();
     }
-  }, [intersecting, page]);
+  }, [intersecting]);
 
   return (
     <>
@@ -72,7 +63,6 @@ export default function TopPage() {
             onChange={(e) => setInputState(e.target.value)}
           />
         </div>
-
         <h2 className={styles.subtitle}>人気の投稿</h2>
         <section className={styles.result}>
           {recent ? (
@@ -94,9 +84,14 @@ export default function TopPage() {
           )}
         </section>
 
-        <div ref={loaderRef} className={styles.loaderwrap}>
+        <div
+          ref={loaderRef}
+          className={`${styles.loaderwrap} ${isLastPage ? "_invisible" : ""}`}
+        >
           <LoaderDom
-            className={`${styles.infinityloader} ${recent ? "" : "_invisible"}`}
+            className={`${styles.infinityloader} ${
+              isLastPage ? "_invisible" : ""
+            }`}
           />
         </div>
       </div>

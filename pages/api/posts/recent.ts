@@ -6,11 +6,12 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { page } = req.query;
-  if (Number(page) < 5) {
+  if (Number(page) > 5) {
     res.status(200).json({
       data: [],
       is_last_page: true,
       total_page: 5,
+      current_page: Number(page),
     });
     return;
   }
@@ -24,6 +25,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     data,
     is_last_page: false,
     total_page: 5,
+    current_page: Number(page),
   };
 
   res.status(200).json(resData);
