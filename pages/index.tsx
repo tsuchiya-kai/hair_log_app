@@ -28,8 +28,6 @@ export default function TopPage() {
 
   useEffect(() => {
     if (intersecting && !isLastPage) {
-      console.log("発火");
-
       const fetchRecent = async () => {
         const endpoint = "/api/posts/recent" + `${page ? `?page=${page}` : ""}`;
         const res: AxiosResponse<RecentResponseData> =
@@ -44,7 +42,6 @@ export default function TopPage() {
         setPage((prev) => (prev ? prev + 1 : 1));
         const { total_page } = data;
         setLastPage(page === total_page);
-        console.log({ isLastPage });
       };
 
       void fetchRecent();
