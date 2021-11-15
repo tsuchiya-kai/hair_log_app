@@ -7,12 +7,15 @@ import type { NextApiRequest, NextApiResponse } from "next";
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { page } = req.query;
   if (Number(page) > 5) {
-    res.status(200).json({
-      data: [],
-      is_last_page: true,
-      total_page: 5,
-      current_page: Number(page),
-    });
+    setTimeout(() => {
+      res.status(200).json({
+        data: [],
+        is_last_page: true,
+        total_page: 5,
+        current_page: Number(page),
+      });
+    }, 1000);
+
     return;
   }
 
@@ -28,5 +31,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     current_page: Number(page),
   };
 
-  res.status(200).json(resData);
+  setTimeout(() => {
+    res.status(200).json(resData);
+  }, 1000);
 }
