@@ -4,8 +4,10 @@ import { SearchAnimationIcon, LoaderDom } from "components/atoms/icon/index";
 import { AppInput } from "components/atoms/index";
 import { TopPageModal } from "components/organisms/index";
 import axios from "lib/axiosIntercepted";
+import { AxiosResponse } from "axios";
 import useIntersection from "hooks/useIntersection";
 import styles from "styles/pages/top-page.module.scss";
+import { debounce } from "lodash";
 
 export default function TopPage() {
   const [inputState, setInputState] = useState("");
@@ -22,22 +24,41 @@ export default function TopPage() {
   const { intersecting } = useIntersection(loaderRef);
   const [page, setPage] = useState<number>();
 
-  type RecentObject = {
-    url: string;
-  };
-  const [recent, setRecent] = useState<RecentObject[]>();
+  const [recent, setRecent] = useState<RecentData[]>([]);
 
   // 初回fetch
   useEffect(() => {
     const fetchRecent = async () => {
       const endpoint = "/api/posts/recent";
       // const endpoint = ""/最近の投稿のendpoint" + `${page ? `?page=${page}` : ""}`;
-      const res = await axios.get<RecentObject[]>(endpoint);
-      setRecent(res.data);
+      const res: AxiosResponse<RecentResponseData> =
+        await axios.get<RecentResponseData>(endpoint);
+      setRecent(res.data.data);
     };
     void fetchRecent();
     setPage((prev) => (prev ? prev + 1 : 1));
   }, []);
+
+  useEffect(() => {
+    if (intersecting) {
+      debounce(() => {
+        const fetchRecent = async () => {
+          const endpoint =
+            "/api/posts/recent" + `${page ? `?page=${page}` : ""}`;
+          const res: AxiosResponse<RecentResponseData> =
+            await axios.get<RecentResponseData>(endpoint);
+
+          setRecent((prev) => {
+            if (prev) return [...prev, ...res.data.data];
+            return [...res.data.data];
+          });
+
+          setPage((prev) => (prev ? prev + 1 : 1));
+        };
+        void fetchRecent();
+      }, 500)();
+    }
+  }, [intersecting, page]);
 
   return (
     <>
