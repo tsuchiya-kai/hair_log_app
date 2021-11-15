@@ -88,11 +88,7 @@ export default function TopPage() {
           ref={loaderRef}
           className={`${styles.loaderwrap} ${isLastPage ? "_invisible" : ""}`}
         >
-          <LoaderDom
-            className={`${styles.infinityloader} ${
-              isLastPage ? "_invisible" : ""
-            }`}
-          />
+          <LoaderDom className={`${styles.infinityloader}`} />
         </div>
       </div>
       <TopPageModal isShow={modalState} switchFunc={switchModal} />
