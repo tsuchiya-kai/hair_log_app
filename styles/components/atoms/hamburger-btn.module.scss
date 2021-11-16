@@ -1,33 +1,33 @@
 .hamburgerButton {
   > .wrap {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 88px;
-    height: 60px;
     cursor: pointer;
+    display: flex;
+    height: 60px;
+    justify-content: center;
     transition: all 0.3s;
+    width: 88px;
   }
 
   > .wrap.Active {
     @include respond(tab-port) {
-      top: 10px;
-      height: 46px;
       background-color: unset;
+      height: 46px;
+      top: 10px;
     }
   }
 
   > .wrap > .span,
   > .wrap > .span::before,
   > .wrap > .span::after {
-    position: absolute;
-    display: block;
-    width: 28px;
-    height: 3px;
-    content: "";
     background-color: $main-black;
     border-radius: 3px;
+    content: '';
+    display: block;
+    height: 3px;
+    position: absolute;
     transition: all 0.3s;
+    width: 28px;
   }
 
   > .wrap > .span::before {
