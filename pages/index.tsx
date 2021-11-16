@@ -158,7 +158,9 @@ export default function TopPage() {
               <SearchInput
                 placeholder="ヘアカタログを検索"
                 state={inputState}
-                onChange={(e) => setInputState(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setInputState(e.target.value)
+                }
               />
               <AppButton
                 onClick={SearchFor}
