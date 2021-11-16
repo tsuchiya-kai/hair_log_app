@@ -1,5 +1,5 @@
 // import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { SearchAnimationIcon, LoaderDom } from "components/atoms/icon/index";
 import { AppInput } from "components/atoms/index";
 import { TopPageModal } from "components/organisms/index";
@@ -7,7 +7,7 @@ import axios from "lib/axiosIntercepted";
 import { AxiosResponse } from "axios";
 import useIntersection from "hooks/useIntersection";
 import styles from "styles/pages/top-page.module.scss";
-// import { debounce } from "lodash";
+import { footerContext } from "components/layout";
 
 export default function TopPage() {
   const [inputState, setInputState] = useState("");
@@ -25,6 +25,12 @@ export default function TopPage() {
   const [page, setPage] = useState<number>();
   const [isLastPage, setLastPage] = useState<boolean>(false);
   const [recent, setRecent] = useState<RecentData[]>([]);
+
+  // footerの出し分け、無限スクロールが最後のページに達した時のみ表示
+  const { setFooterIsShow } = useContext(footerContext);
+
+  // 参考:https://qiita.com/FumioNonaka/items/3fe39911e3f2479128e8
+  useEffect(() => setFooterIsShow(isLastPage), [setFooterIsShow, isLastPage]);
 
   useEffect(() => {
     if (intersecting && !isLastPage) {

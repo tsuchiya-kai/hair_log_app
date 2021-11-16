@@ -14,23 +14,32 @@ export const maskContext = createContext(
     setMaskIsShow: React.Dispatch<React.SetStateAction<boolean>>;
   }
 );
+export const footerContext = createContext(
+  {} as {
+    footerIsShow: boolean;
+    setFooterIsShow: React.Dispatch<React.SetStateAction<boolean>>;
+  }
+);
 
 export default function Layout({ children }: Props) {
   const [maskIsShow, setMaskIsShow] = useState<boolean>(false);
+  const [footerIsShow, setFooterIsShow] = useState<boolean>(true);
 
   return (
-    <maskContext.Provider value={{ maskIsShow, setMaskIsShow }}>
-      <div className={styles.layoutContainer}>
-        <TheHeader />
-        <div className={styles.inner}>
-          <main className={styles.content}>{children}</main>
+    <footerContext.Provider value={{ footerIsShow, setFooterIsShow }}>
+      <maskContext.Provider value={{ maskIsShow, setMaskIsShow }}>
+        <div className={styles.layoutContainer}>
+          <TheHeader />
+          <div className={styles.inner}>
+            <main className={styles.content}>{children}</main>
+          </div>
+          {footerIsShow ? <TheFooter /> : ""}
+          {/* モーダルなどのための黒い透けている背景 */}
+          <div
+            className={`${styles.mask} ${maskIsShow ? styles.Show : ""}`}
+          />{" "}
         </div>
-        <TheFooter />
-        {/* モーダルなどのための黒い透けている背景 */}
-        <div
-          className={`${styles.mask} ${maskIsShow ? styles.Show : ""}`}
-        />{" "}
-      </div>
-    </maskContext.Provider>
+      </maskContext.Provider>
+    </footerContext.Provider>
   );
 }
