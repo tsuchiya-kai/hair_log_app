@@ -1,4 +1,3 @@
-// import Link from "next/link";
 import { useState, useRef, useEffect, useContext } from "react";
 import { SearchAnimationIcon, LoaderDom } from "components/atoms/icon/index";
 import { SearchInput, AppButton } from "components/atoms/index";
@@ -83,7 +82,7 @@ export default function TopPage() {
    * 投稿取得系 検索周り
    */
   const SearchFor = async () => {
-    setSearchResult([]);
+    setSearchResult([]); // 初期化
 
     const endpoint = `/api/catalog/search?word=${inputState}`;
 
