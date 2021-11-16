@@ -1,5 +1,5 @@
 import { SearchIcon } from "components/atoms/icon/index";
-import styles from "styles/components/atoms/app-input.module.scss";
+import styles from "styles/components/atoms/search-input.module.scss";
 
 type Props = {
   className?: string;
@@ -8,10 +8,10 @@ type Props = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export default function AppInput(props: Props) {
+export default function SearchInput(props: Props) {
   const { className, state, placeholder, ...rest } = props;
   return (
-    <div className={`${styles.appInput} ${className ?? ""}`}>
+    <div className={`${styles.searchInput} ${className ?? ""}`}>
       <input
         className={styles.input}
         value={state}

@@ -35,6 +35,17 @@
     z-index: 1;
   }
 
+  > .sticky > .search {
+    display: grid;
+    grid-template-columns: auto 120px;
+    column-gap: 3px;
+  }
+
+  > .sticky > .search > .button {
+    letter-spacing: 5px;
+    font-weight: bold;
+  }
+
   > .subtitle {
     color: $main-black;
     font-size: 2rem;

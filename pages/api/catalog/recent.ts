@@ -24,7 +24,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   });
 
   // 仮の値
-  const resData: RecentResponseData = {
+  const resData: CatalogDataResponse = {
     data,
     is_last_page: false,
     total_page: 5,
