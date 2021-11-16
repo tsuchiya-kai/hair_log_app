@@ -175,7 +175,9 @@ export default function TopPage() {
 
         <div
           ref={loaderRef}
-          className={`${styles.loaderwrap} ${isLastPage ? "_invisible" : ""}`}
+          className={`${styles.loaderwrap} ${
+            isLastPage || !recent.length ? "_invisible" : ""
+          }`}
         >
           <LoaderDom className={`${styles.infinityloader}`} />
         </div>
