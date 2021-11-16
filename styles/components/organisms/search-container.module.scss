@@ -1,0 +1,32 @@
+.searchContainer {
+  > .title {
+    font-size: 25px;
+    line-height: 1;
+    margin-bottom: 32px;
+    text-align: center;
+
+    @include respond(tab-port) {
+      margin-bottom: 24px;
+    }
+  }
+
+  > .sticky {
+    background-color: $main-white;
+    margin-bottom: 32px;
+    padding-bottom: 8px;
+    position: sticky;
+    top: 60px;
+    z-index: 1;
+  }
+
+  > .sticky > .search {
+    display: grid;
+    grid-template-columns: auto 120px;
+    column-gap: 3px;
+  }
+
+  > .sticky > .search > .button {
+    letter-spacing: 5px;
+    font-weight: bold;
+  }
+}

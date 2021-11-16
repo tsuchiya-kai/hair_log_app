@@ -1,18 +1,18 @@
 // google fonts
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;700&display=swap");
 
 // settings
-@import 'settings/colors';
-@import 'settings/fonts';
+@import "settings/colors";
+@import "settings/fonts";
 
 // tools
-@import 'tools/mixins';
+@import "tools/mixins";
 
 // generic
-@import 'generic/reset';
-@import 'generic/root-font-size';
-@import 'generic/border-box';
-@import 'generic/typography';
+@import "generic/reset";
+@import "generic/root-font-size";
+@import "generic/border-box";
+@import "generic/typography";
 
 //utilities
-@import 'utilities/main.scss';
+@import "utilities/main.scss";

@@ -1,12 +1,16 @@
 import { useState, useRef, useEffect, useContext } from "react";
-import { SearchAnimationIcon, LoaderDom } from "components/atoms/icon/index";
+import axios from "lib/axiosIntercepted";
+import useIntersection from "hooks/useIntersection";
+import { footerContext } from "components/layout";
+import { LoaderDom } from "components/atoms/icon/index";
 import { SearchInput, AppButton } from "components/atoms/index";
 import { TopPageModal } from "components/organisms/index";
-import axios from "lib/axiosIntercepted";
-import { AxiosResponse } from "axios";
-import useIntersection from "hooks/useIntersection";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { AxiosResponse } from "axios";
 import styles from "styles/pages/top-page.module.scss";
-import { footerContext } from "components/layout";
+import searchSectionStyle from "styles/components/organisms/search-container.module.scss";
+import topPageContentsStyles from "styles/components/organisms/top-page-contents.module.scss";
+import "swiper/css";
 
 export default function TopPage() {
   const [inputState, setInputState] = useState("");
@@ -100,86 +104,98 @@ export default function TopPage() {
   return (
     <>
       <div className={styles.topPage}>
-        <SearchAnimationIcon className={styles.icon} />
-        <h1 className={styles.title}>カタログを検索！</h1>
-        <div className={styles.sticky}>
-          <div className={styles.search}>
-            <SearchInput
-              placeholder="ヘアカタログを検索"
-              state={inputState}
-              onChange={(e) => setInputState(e.target.value)}
-            />
-            <AppButton
-              onClick={SearchFor}
-              className={styles.button}
-              radius="0 30px 30px 0"
-              disabled={!inputState}
-            >
-              検索
-            </AppButton>
-          </div>
+        <div className={styles.mv}>
+          <Swiper className={styles.slider}>
+            <SwiperSlide>Slide 1</SwiperSlide>
+            <SwiperSlide>Slide 2</SwiperSlide>
+            <SwiperSlide>Slide 3</SwiperSlide>
+            <SwiperSlide>Slide 4</SwiperSlide>
+          </Swiper>
+          <section className={searchSectionStyle.searchContainer}>
+            <h1 className={searchSectionStyle.title}>カタログを検索！</h1>
+            <div className={searchSectionStyle.sticky}>
+              <div className={searchSectionStyle.search}>
+                <SearchInput
+                  placeholder="ヘアカタログを検索"
+                  state={inputState}
+                  onChange={(e) => setInputState(e.target.value)}
+                />
+                <AppButton
+                  onClick={SearchFor}
+                  className={searchSectionStyle.button}
+                  radius="0 30px 30px 0"
+                  disabled={!inputState}
+                >
+                  検索
+                </AppButton>
+              </div>
+            </div>
+          </section>
         </div>
-        <h2 className={styles.subtitle}>
-          {inputState ? "検索結果" : "最近の投稿"}
-        </h2>
-        <section className={styles.result}>
-          {(() => {
-            if (inputState) {
-              return searchResult.length ? (
-                searchResult.map((post, i) => {
-                  return (
-                    <div
-                      className={styles.content}
-                      key={i}
-                      onClick={switchModal}
-                    >
-                      <img
-                        className={styles.image}
-                        src={post.url}
-                        alt="検索結果画像"
-                      />
-                    </div>
-                  );
-                })
-              ) : (
-                <div className={styles.loader}>
-                  <LoaderDom className={styles.resultloader} />
-                </div>
-              );
-            } else {
-              return recent.length ? (
-                recent.map((post, i) => {
-                  return (
-                    <div
-                      className={styles.content}
-                      key={i}
-                      onClick={switchModal}
-                    >
-                      <img
-                        className={styles.image}
-                        src={post.url}
-                        alt="検索結果画像"
-                      />
-                    </div>
-                  );
-                })
-              ) : (
-                <div className={styles.loader}>
-                  <LoaderDom className={styles.resultloader} />
-                </div>
-              );
-            }
-          })()}
-        </section>
 
-        <div
-          ref={loaderRef}
-          className={`${styles.loaderwrap} ${
-            isLastPage || !recent.length ? "_invisible" : ""
-          }`}
-        >
-          <LoaderDom className={`${styles.infinityloader}`} />
-        </div>
+        <section className={topPageContentsStyles.topPageContents}>
+          <h2 className={topPageContentsStyles.subtitle}>
+            {inputState ? "検索結果" : "最近の投稿"}
+          </h2>
+          <section className={topPageContentsStyles.result}>
+            {(() => {
+              if (inputState) {
+                return searchResult.length ? (
+                  searchResult.map((post, i) => {
+                    return (
+                      <div
+                        className={topPageContentsStyles.content}
+                        key={i}
+                        onClick={switchModal}
+                      >
+                        <img
+                          className={topPageContentsStyles.image}
+                          src={post.url}
+                          alt="検索結果画像"
+                        />
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div className={topPageContentsStyles.loader}>
+                    <LoaderDom className={topPageContentsStyles.resultloader} />
+                  </div>
+                );
+              } else {
+                return recent.length ? (
+                  recent.map((post, i) => {
+                    return (
+                      <div
+                        className={topPageContentsStyles.content}
+                        key={i}
+                        onClick={switchModal}
+                      >
+                        <img
+                          className={topPageContentsStyles.image}
+                          src={post.url}
+                          alt="検索結果画像"
+                        />
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div className={topPageContentsStyles.loader}>
+                    <LoaderDom className={topPageContentsStyles.resultloader} />
+                  </div>
+                );
+              }
+            })()}
+          </section>
+
+          <div
+            ref={loaderRef}
+            className={`${topPageContentsStyles.loaderwrap} ${
+              isLastPage || !recent.length ? "_invisible" : ""
+            }`}
+          >
+            <LoaderDom className={`${topPageContentsStyles.infinityloader}`} />
+          </div>
+        </section>
       </div>
       <TopPageModal isShow={modalState} switchFunc={switchModal} />
     </>
