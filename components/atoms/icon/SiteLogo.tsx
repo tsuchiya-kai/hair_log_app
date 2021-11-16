@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Urls from "utils/urls";
+import Urls from "lib/urls";
 import styles from "styles/components/atoms/site-icon.module.scss";
 
 type Props = {
