@@ -26,7 +26,7 @@ Basic 認証：
 - react : 17.0.2
 - typescript : ^4.4.4
 
-## Tools
+## Modules
 
 - ESLint
 - Prettier
