@@ -46,7 +46,8 @@ export default function TopPage() {
 
       void fetchRecent();
     }
-  }, [intersecting]);
+  }, [intersecting]); // eslint-disable-line react-hooks/exhaustive-deps
+  //参考:http://watanabeyu.blogspot.com/2019/09/eslintreact-hooksexhaustive-deps.html
 
   return (
     <>
