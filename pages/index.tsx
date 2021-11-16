@@ -107,7 +107,7 @@ export default function TopPage() {
     spaceBetween: 30,
     centeredSlides: true,
     autoplay: {
-      delay: 2000,
+      delay: 3000,
       disableOnInteraction: false,
     },
     pagination: {
@@ -125,6 +125,7 @@ export default function TopPage() {
     <>
       <div className={styles.topPage}>
         <div className={styles.mv}>
+          <div className={styles.mask} />
           <Swiper
             {...params}
             className={styles.slider}
