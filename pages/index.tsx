@@ -6,11 +6,13 @@ import { LoaderDom } from "components/atoms/icon/index";
 import { SearchInput, AppButton } from "components/atoms/index";
 import { TopPageModal } from "components/organisms/index";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Swiper as RealSwiper } from "swiper";
+RealSwiper.use([Autoplay]);
 import type { AxiosResponse } from "axios";
 import styles from "styles/pages/top-page.module.scss";
 import searchSectionStyle from "styles/components/organisms/search-container.module.scss";
 import topPageContentsStyles from "styles/components/organisms/top-page-contents.module.scss";
-import "swiper/css";
+import "swiper/css/bundle";
 
 export default function TopPage() {
   const [inputState, setInputState] = useState("");
@@ -101,34 +103,71 @@ export default function TopPage() {
     setLastPage(page === total_page);
   };
 
+  const params = {
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    loop: true,
+  };
+
   return (
     <>
       <div className={styles.topPage}>
         <div className={styles.mv}>
-          <Swiper className={styles.slider}>
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
+          <Swiper
+            {...params}
+            className={styles.slider}
+            style={{ height: "100%" }}
+          >
+            <SwiperSlide className={styles.slide} style={{ height: "100%" }}>
+              <img
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                className={styles.image}
+                src="/images/slider/slider_1.jpeg"
+                alt=""
+              />
+            </SwiperSlide>
+            <SwiperSlide
+              style={{ objectFit: "cover", width: "100%", height: "100%" }}
+            >
+              <img src="/images/slider/slider_2.jpeg" alt="" />
+            </SwiperSlide>
+            <SwiperSlide
+              style={{ objectFit: "cover", width: "100%", height: "100%" }}
+            >
+              <img src="/images/slider/slider_3.jpeg" alt="" />
+            </SwiperSlide>
           </Swiper>
-          <section className={searchSectionStyle.searchContainer}>
+          <section
+            className={`${styles.search} ${searchSectionStyle.searchContainer}`}
+          >
             <h1 className={searchSectionStyle.title}>カタログを検索！</h1>
-            <div className={searchSectionStyle.sticky}>
-              <div className={searchSectionStyle.search}>
-                <SearchInput
-                  placeholder="ヘアカタログを検索"
-                  state={inputState}
-                  onChange={(e) => setInputState(e.target.value)}
-                />
-                <AppButton
-                  onClick={SearchFor}
-                  className={searchSectionStyle.button}
-                  radius="0 30px 30px 0"
-                  disabled={!inputState}
-                >
-                  検索
-                </AppButton>
-              </div>
+
+            <div className={searchSectionStyle.search}>
+              <SearchInput
+                placeholder="ヘアカタログを検索"
+                state={inputState}
+                onChange={(e) => setInputState(e.target.value)}
+              />
+              <AppButton
+                onClick={SearchFor}
+                className={searchSectionStyle.button}
+                radius="0 30px 30px 0"
+                disabled={!inputState}
+              >
+                検索
+              </AppButton>
             </div>
           </section>
         </div>

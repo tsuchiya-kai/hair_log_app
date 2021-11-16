@@ -1,4 +1,6 @@
 .searchContainer {
+  z-index: 1;
+
   > .title {
     font-size: 25px;
     line-height: 1;
@@ -10,22 +12,13 @@
     }
   }
 
-  > .sticky {
-    background-color: $main-white;
-    margin-bottom: 32px;
-    padding-bottom: 8px;
-    position: sticky;
-    top: 60px;
-    z-index: 1;
-  }
-
-  > .sticky > .search {
+  > .search {
     display: grid;
     grid-template-columns: auto 120px;
     column-gap: 3px;
   }
 
-  > .sticky > .search > .button {
+  > .search > .button {
     letter-spacing: 5px;
     font-weight: bold;
   }

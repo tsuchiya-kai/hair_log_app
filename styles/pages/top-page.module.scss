@@ -1,6 +1,5 @@
 .topPage {
   margin-bottom: 16px;
-  padding-top: 64px;
 
   @include respond(tab-port) {
     padding-top: 24px;
@@ -8,8 +7,9 @@
 
   > .mv {
     width: 100%;
-    height: 100vh;
+    height: calc(80vh - 60px);
     position: relative;
+    border-bottom: 1px solid #000;
   }
 
   > .mv > .slider {
@@ -19,5 +19,17 @@
     top: 0;
     left: 0;
     right: 0;
+  }
+
+  > .mv > .search {
+    position: absolute;
+    top: -10%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 110px;
+    max-width: 832px;
   }
 }
