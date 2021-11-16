@@ -1,31 +1,31 @@
 .appModal {
   > .body {
-    position: fixed;
-    top: 0;
-    right: 0;
+    background-color: $main-white;
+    border-radius: 3px;
     bottom: 0;
     left: 0;
     margin: auto;
-    z-index: 3;
     padding: 16px;
-    background-color: $main-white;
-    border-radius: 3px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 3;
   }
 
   > .body > .close {
+    appearance: none;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    display: block;
+    margin-left: auto;
     outline: none;
     padding: 10px;
-    appearance: none;
-    margin-left: auto;
-    display: block;
   }
 
   > .body > .content {
-    z-index: 4;
     background-color: $main-white;
+    z-index: 4;
   }
 
   > .body > .content.Scroll {
