@@ -15,14 +15,13 @@ export default function TopPage() {
   const switchModal = () => setModalState((prev) => !prev);
 
   /**
-   * 投稿取得系
+   * 投稿取得系 無限スクロール周り
    */
-  // 無限スクロール周り
   const loaderRef = useRef<HTMLDivElement>(
     null
   ) as React.MutableRefObject<HTMLDivElement>;
   const { intersecting } = useIntersection(loaderRef);
-  const [page, setPage] = useState<number>();
+  const [page, setPage] = useState<number>(1);
   const [isLastPage, setLastPage] = useState<boolean>(false);
   const [recent, setRecent] = useState<CatalogData[]>([]); // 最近の投稿
   const [searchResult, setSearchResult] = useState<CatalogData[]>([]); //検索結果
@@ -33,9 +32,7 @@ export default function TopPage() {
       // 入力があれば、検索結果をfetchする
       if (inputState) {
         const fetchRecent = async () => {
-          const endpoint =
-            `/api/catalog/recent?word=${inputState}` +
-            `${page ? `?page=${page}` : ""}`;
+          const endpoint = `/api/catalog/search?page=${page}?word=${inputState}`;
           const res: AxiosResponse<CatalogDataResponse> =
             await axios.get<CatalogDataResponse>(endpoint);
           const { data } = res;
@@ -45,7 +42,7 @@ export default function TopPage() {
             return [...data.data];
           });
 
-          setPage((prev) => (prev ? prev + 1 : 1));
+          setPage((prev) => prev + 1);
           const { total_page } = data;
           setLastPage(page === total_page);
         };
@@ -55,8 +52,8 @@ export default function TopPage() {
         //入力がなければ最新の投稿をfetchする
 
         const fetchRecent = async () => {
-          const endpoint =
-            "/api/catalog/recent" + `${page ? `?page=${page}` : ""}`;
+          const endpoint = `/api/catalog/recent?page=${page}`;
+
           const res: AxiosResponse<CatalogDataResponse> =
             await axios.get<CatalogDataResponse>(endpoint);
           const { data } = res;
@@ -66,7 +63,7 @@ export default function TopPage() {
             return [...data.data];
           });
 
-          setPage((prev) => (prev ? prev + 1 : 1));
+          setPage((prev) => prev + 1);
           const { total_page } = data;
           setLastPage(page === total_page);
         };
@@ -82,6 +79,25 @@ export default function TopPage() {
   // 参考:https://qiita.com/FumioNonaka/items/3fe39911e3f2479128e8
   useEffect(() => setFooterIsShow(isLastPage), [setFooterIsShow, isLastPage]);
 
+  /**
+   * 投稿取得系 検索周り
+   */
+  const SearchFor = async () => {
+    setSearchResult([]);
+
+    const endpoint = `/api/catalog/search?word=${inputState}`;
+
+    const res: AxiosResponse<CatalogDataResponse> =
+      await axios.get<CatalogDataResponse>(endpoint);
+
+    const { data } = res;
+    setSearchResult([...data.data]);
+
+    setPage(2); // NOTE: 今回が1なので、次回用にインクリメント済みの2を固定で指定する
+    const { total_page } = data;
+    setLastPage(page === total_page);
+  };
+
   return (
     <>
       <div className={styles.topPage}>
@@ -94,7 +110,12 @@ export default function TopPage() {
               state={inputState}
               onChange={(e) => setInputState(e.target.value)}
             />
-            <AppButton className={styles.button} radius="0 30px 30px 0">
+            <AppButton
+              onClick={SearchFor}
+              className={styles.button}
+              radius="0 30px 30px 0"
+              disabled={!inputState}
+            >
               検索
             </AppButton>
           </div>
@@ -105,19 +126,29 @@ export default function TopPage() {
         <section className={styles.result}>
           {(() => {
             if (inputState) {
-              return searchResult.map((post, i) => {
-                return (
-                  <div className={styles.content} key={i} onClick={switchModal}>
-                    <img
-                      className={styles.image}
-                      src={post.url}
-                      alt="検索結果画像"
-                    />
-                  </div>
-                );
-              });
+              return searchResult.length ? (
+                searchResult.map((post, i) => {
+                  return (
+                    <div
+                      className={styles.content}
+                      key={i}
+                      onClick={switchModal}
+                    >
+                      <img
+                        className={styles.image}
+                        src={post.url}
+                        alt="検索結果画像"
+                      />
+                    </div>
+                  );
+                })
+              ) : (
+                <div className={styles.loader}>
+                  <LoaderDom className={styles.resultloader} />
+                </div>
+              );
             } else {
-              return recent ? (
+              return recent.length ? (
                 recent.map((post, i) => {
                   return (
                     <div

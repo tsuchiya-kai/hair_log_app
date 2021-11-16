@@ -8,6 +8,7 @@ type Props = {
   radius?: string;
   width?: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  disabled: boolean;
 };
 
 export default function AppButton({
@@ -17,6 +18,7 @@ export default function AppButton({
   width,
   onClick,
   className,
+  disabled,
 }: Props) {
   return (
     <button
@@ -27,6 +29,7 @@ export default function AppButton({
         borderRadius: radius ? radius : "",
         width: width ? width : "",
       }}
+      disabled={disabled}
     >
       {children}
     </button>
