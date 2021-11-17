@@ -3,12 +3,12 @@
 
   > .mv {
     width: 100%;
-    height: calc(80vh - 60px);
+    height: calc(55vh - 60px);
     position: relative;
-    border-bottom: 1px solid #000;
+    margin-bottom: 24px;
 
     @include respond(tab-port) {
-      height: calc(75vh - 60px);
+      height: calc(45vh - 60px);
     }
   }
 
@@ -42,5 +42,9 @@
     height: 110px;
     max-width: 832px;
     z-index: 3;
+
+    @include respond(tab-port) {
+      top: 20%;
+    }
   }
 }
