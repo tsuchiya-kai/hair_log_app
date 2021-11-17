@@ -11,11 +11,7 @@
   color: $main-white;
   font-size: 1.6rem;
   transition: 0.3s;
-  border: 2px solid $main-blue;
-
-  @include respond(tab-port) {
-    border: 1px solid $main-blue;
-  }
+  border: 1px solid $main-blue;
 
   &:disabled {
     background-color: $disabled-gray;
