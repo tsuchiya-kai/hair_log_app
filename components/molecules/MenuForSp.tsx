@@ -1,6 +1,8 @@
 import { useContext, useEffect, useRef } from "react";
 import { useBodyScrollLock } from "hooks/useBodyScrollLock";
 import { maskContext } from "components/layout";
+import urls from "lib/urls";
+import Link from "next/link";
 import styles from "styles/components/molecules/the-menu-for-sp.module.scss";
 
 type Props = {
@@ -29,8 +31,15 @@ export default function TheMenuForSp(props: Props) {
   return (
     <>
       <section {...rest} className={classNames} ref={target}>
-        <p>SPメニューの中身は</p>
-        <p>遷移先が決まったら実装します！🙇‍♂️</p>
+        <Link href={urls.topPageUrl}>
+          <a>トップページ</a>
+        </Link>
+        <Link href={urls.postPageUrl}>
+          <a>投稿する</a>
+        </Link>
+        <Link href={urls.aboutPageUrl}>
+          <a>ヘアログとは</a>
+        </Link>
       </section>
     </>
   );

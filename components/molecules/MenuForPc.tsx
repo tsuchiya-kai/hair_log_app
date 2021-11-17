@@ -19,13 +19,13 @@ export default function TheMenuForPc(props: Props) {
   return (
     <section {...rest} className={classNames}>
       <Link href={urls.topPageUrl}>
-        <a>トップページ</a>
+        <a className={styles.link}>トップページ</a>
       </Link>
       <Link href={urls.postPageUrl}>
-        <a>投稿する</a>
+        <a className={styles.link}>投稿する</a>
       </Link>
       <Link href={urls.aboutPageUrl}>
-        <a>ヘアログとは</a>
+        <a className={styles.link}>ヘアログとは</a>
       </Link>
     </section>
   );
