@@ -29,6 +29,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       recent_posts: [...(Array(random(5)) as undefined[])].map((_) => {
         return {
           url: "https://unsplash.it/100/100",
+          description: "投稿の説明文が入ります",
         };
       }),
     };

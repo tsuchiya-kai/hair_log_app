@@ -2,7 +2,7 @@ type CatalogData = {
   beautician_id: number;
   beautician: string;
   thumbnail: string;
-  recent_posts: { url: string }[];
+  recent_posts: { url: string; description: string }[];
 };
 
 type CatalogDataResponse = {

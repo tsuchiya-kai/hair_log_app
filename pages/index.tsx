@@ -150,6 +150,20 @@ export default function TopPage() {
     height: "100%",
   };
 
+  //モーダル周り
+  const [modalContents, setModalContent] = useState<CatalogData>();
+  const toBeSelected = (arg: {
+    index: number;
+    target: keyof typeof targetType;
+  }) => {
+    const { index, target } = arg;
+    if (targetType[target] === targetType.recent)
+      setModalContent(recent[index]);
+    if (targetType[target] === targetType.search)
+      setModalContent(searchResult[index]);
+    switchModal();
+  };
+
   return (
     <>
       <div className={styles.topPage}>
@@ -223,7 +237,9 @@ export default function TopPage() {
                       <div
                         className={topPageContentsStyles.content}
                         key={i}
-                        onClick={switchModal}
+                        onClick={() =>
+                          toBeSelected({ index: i, target: targetType.search })
+                        }
                       >
                         <img
                           className={topPageContentsStyles.image}
@@ -245,7 +261,9 @@ export default function TopPage() {
                       <div
                         className={topPageContentsStyles.content}
                         key={i}
-                        onClick={switchModal}
+                        onClick={() =>
+                          toBeSelected({ index: i, target: targetType.recent })
+                        }
                       >
                         <img
                           className={topPageContentsStyles.image}
@@ -274,7 +292,11 @@ export default function TopPage() {
           </div>
         </section>
       </div>
-      <TopPageModal isShow={modalState} switchFunc={switchModal} />
+      <TopPageModal
+        data={modalContents}
+        isShow={modalState}
+        switchFunc={switchModal}
+      />
     </>
   );
 }

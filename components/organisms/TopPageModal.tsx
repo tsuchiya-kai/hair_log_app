@@ -2,6 +2,7 @@ import { AppModal } from "components/atoms/index";
 import styles from "styles/components/organisms/top-page-modal.module.scss";
 
 type Props = {
+  data?: CatalogData;
   isShow: boolean;
   switchFunc: () => void;
 };
