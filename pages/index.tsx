@@ -20,6 +20,28 @@ export default function TopPage() {
   const switchModal = () => setModalState((prev) => !prev);
 
   /**
+   * 投稿取得系 検索周り
+   */
+  const [searchWord, setSearchWord] = useState(inputState);
+  const SearchFor = async () => {
+    setSearchWord(inputState);
+
+    setSearchResult([]); // 初期化
+
+    const endpoint = `/api/catalog/search?word=${inputState}`;
+
+    const res: AxiosResponse<CatalogDataResponse> =
+      await axios.get<CatalogDataResponse>(endpoint);
+
+    const { data } = res;
+    setSearchResult([...data.data]);
+
+    setPage(2); // NOTE: 今回が1なので、次回用にインクリメント済みの2を固定で指定する
+    const { total_page } = data;
+    setLastPage(page === total_page);
+  };
+
+  /**
    * 投稿取得系 無限スクロール周り
    */
   const loaderRef = useRef<HTMLDivElement>(
@@ -37,7 +59,7 @@ export default function TopPage() {
       // 入力があれば、検索結果をfetchする
       if (inputState) {
         const fetchRecent = async () => {
-          const endpoint = `/api/catalog/search?page=${page}?word=${inputState}`;
+          const endpoint = `/api/catalog/search?page=${page}?word=${searchWord}`;
           const res: AxiosResponse<CatalogDataResponse> =
             await axios.get<CatalogDataResponse>(endpoint);
           const { data } = res;
@@ -83,25 +105,6 @@ export default function TopPage() {
   const { setFooterIsShow } = useContext(footerContext);
   // 参考:https://qiita.com/FumioNonaka/items/3fe39911e3f2479128e8
   useEffect(() => setFooterIsShow(isLastPage), [setFooterIsShow, isLastPage]);
-
-  /**
-   * 投稿取得系 検索周り
-   */
-  const SearchFor = async () => {
-    setSearchResult([]); // 初期化
-
-    const endpoint = `/api/catalog/search?word=${inputState}`;
-
-    const res: AxiosResponse<CatalogDataResponse> =
-      await axios.get<CatalogDataResponse>(endpoint);
-
-    const { data } = res;
-    setSearchResult([...data.data]);
-
-    setPage(2); // NOTE: 今回が1なので、次回用にインクリメント済みの2を固定で指定する
-    const { total_page } = data;
-    setLastPage(page === total_page);
-  };
 
   const swiperParams = {
     spaceBetween: 30,
@@ -194,11 +197,11 @@ export default function TopPage() {
 
         <section className={topPageContentsStyles.topPageContents}>
           <h2 className={topPageContentsStyles.subtitle}>
-            {inputState ? "検索結果" : "最近の投稿"}
+            {searchWord ? "検索結果" : "最近の投稿"}
           </h2>
           <section className={topPageContentsStyles.result}>
             {(() => {
-              if (inputState) {
+              if (searchWord) {
                 return searchResult.length ? (
                   searchResult.map((post, i) => {
                     return (
