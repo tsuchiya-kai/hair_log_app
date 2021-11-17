@@ -34,7 +34,9 @@ export default function AppModal({
               <CrossMarkIcon />
             </button>
 
-            <div className={`${styles.content} ${isScroll ? "Scroll" : ""}`}>
+            <div
+              className={`${styles.content} ${isScroll ? styles.Scroll : ""}`}
+            >
               {children}
             </div>
           </div>

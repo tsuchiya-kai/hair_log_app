@@ -6,14 +6,24 @@ type Props = {
   isShow: boolean;
   switchFunc: () => void;
 };
-export default function TopPageModal({ isShow, switchFunc }: Props) {
+export default function TopPageModal({ data, isShow, switchFunc }: Props) {
   return (
     <AppModal
       className={styles.topPageModal}
       isShow={isShow}
       switchFunc={switchFunc}
+      isScroll
     >
-      {"テスト"}
+      <h3>{data?.beautician}</h3>
+
+      {data?.recent_posts.map((post, i) => {
+        return (
+          <div key={i + 1}>
+            <img src={post.url} alt={`投稿${i + 1}`} />
+            <p>{post.description}</p>
+          </div>
+        );
+      })}
     </AppModal>
   );
 }
