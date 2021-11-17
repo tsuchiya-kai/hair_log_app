@@ -5,7 +5,7 @@ type Props = {
   className?: string;
   placeholder?: string;
   state: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function SearchInput(props: Props) {

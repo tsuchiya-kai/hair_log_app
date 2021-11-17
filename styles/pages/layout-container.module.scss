@@ -2,10 +2,7 @@
   padding-top: 60px;
 
   > .inner {
-    margin: 0 auto;
-    max-width: 832px;
     min-height: 100vh;
-    padding: 0 32px;
   }
 
   .mask {
@@ -16,7 +13,7 @@
     right: 0;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 3;
   }
 
   > .mask.Show {

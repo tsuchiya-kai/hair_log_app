@@ -2,7 +2,7 @@
   position: relative;
 
   > .input {
-    border: 2px solid $lite-gray;
+    border: 1px solid $lite-gray;
     border-radius: 30px 0 0 30px;
     display: block;
     font-size: 1.6rem;
@@ -11,6 +11,11 @@
     padding: 16px;
     padding-left: 63px;
     width: 100%;
+
+    @include respond(tab-port) {
+      padding: 12px;
+      padding-left: 40px;
+    }
   }
 
   > .icon {
@@ -19,5 +24,9 @@
     margin: auto;
     position: absolute;
     top: 0;
+
+    @include respond(tab-port) {
+      left: 12px;
+    }
   }
 }

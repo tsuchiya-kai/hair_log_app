@@ -1,0 +1,70 @@
+.topPageContents {
+  max-width: 832px;
+  padding: 0 32px;
+  margin: 0 auto;
+
+  @include respond(tab-port) {
+    padding: 0 24px;
+  }
+
+  > .subtitle {
+    color: $main-black;
+    font-size: 2rem;
+    margin-bottom: 16px;
+    padding-top: 8px;
+  }
+
+  > .result {
+    column-gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-evenly;
+    justify-items: center;
+    margin: 0 auto;
+    position: relative;
+    row-gap: 16px;
+    width: 100%;
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 8px;
+      row-gap: 8px;
+    }
+  }
+
+  > .result > .content {
+    padding-top: 100%;
+    position: relative;
+    width: 100%;
+  }
+
+  > .result > .content > .image {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  > .result > .loader {
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+  }
+
+  > .result > .loader > .resultloader {
+    margin: 0 auto;
+  }
+
+  > .loaderwrap {
+    padding: 32px 0;
+  }
+
+  > .loaderwrap > .infinityloader {
+    margin: 0 auto;
+  }
+}
