@@ -1,0 +1,31 @@
+.topPageModalInner {
+  margin: 0 auto;
+  width: 420px;
+
+  @include respond(tab-port) {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  > .beautician {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  > .imagewrap {
+    margin-bottom: 64px;
+  }
+
+  > .imagewrap > .image {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+
+    @include respond(tab-port) {
+      height: 150px;
+    }
+  }
+
+  // > .imagewrap > .description {
+  // }
+}
