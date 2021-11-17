@@ -1,3 +1,5 @@
+import urls from "lib/urls";
+import Link from "next/link";
 import styles from "styles/components/molecules/the-menu-for-pc.module.scss";
 
 type Props = {
@@ -16,8 +18,15 @@ export default function TheMenuForPc(props: Props) {
 
   return (
     <section {...rest} className={classNames}>
-      <p>PCメニューの中身は</p>
-      <p>遷移先が決まったら実装します🙇‍♂️</p>
+      <Link href={urls.topPageUrl}>
+        <a>トップページ</a>
+      </Link>
+      <Link href={urls.postPageUrl}>
+        <a>投稿する</a>
+      </Link>
+      <Link href={urls.aboutPageUrl}>
+        <a>ヘアログとは</a>
+      </Link>
     </section>
   );
 }

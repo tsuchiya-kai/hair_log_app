@@ -6,14 +6,15 @@ export default function useIntersection(
   const [intersecting, setIntersecting] = useState(false);
 
   useEffect(() => {
+    const { current } = ref;
     const observer = new IntersectionObserver(([entry]) => {
       setIntersecting(entry.isIntersecting);
     });
 
-    observer.observe(ref.current);
+    observer.observe(current);
 
     return () => {
-      observer.unobserve(ref.current);
+      observer.unobserve(current);
     };
   });
 
