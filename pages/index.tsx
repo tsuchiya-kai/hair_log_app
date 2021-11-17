@@ -28,7 +28,7 @@ export default function TopPage() {
     setTarget(targetType.search);
     setSearchWord(inputState);
     setSearchResult([]); // 初期化
-    const endpoint = `/api/catalog/search?word=${inputState}`;
+    const endpoint = `/api/catalog/search?word=${searchWord}`;
 
     const res: AxiosResponse<CatalogDataResponse> =
       await axios.get<CatalogDataResponse>(endpoint);
@@ -227,7 +227,7 @@ export default function TopPage() {
                       >
                         <img
                           className={topPageContentsStyles.image}
-                          src={post.url}
+                          src={post.thumbnail}
                           alt="検索結果画像"
                         />
                       </div>
@@ -249,7 +249,7 @@ export default function TopPage() {
                       >
                         <img
                           className={topPageContentsStyles.image}
-                          src={post.url}
+                          src={post.thumbnail}
                           alt="検索結果画像"
                         />
                       </div>

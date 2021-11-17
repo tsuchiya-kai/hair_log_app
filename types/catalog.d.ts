@@ -1,5 +1,8 @@
 type CatalogData = {
-  url: string;
+  beautician_id: number;
+  beautician: string;
+  thumbnail: string;
+  recent_posts: { url: string }[];
 };
 
 type CatalogDataResponse = {

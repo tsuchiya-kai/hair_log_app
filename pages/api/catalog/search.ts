@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { random } from "lib/utilityFunctions";
 /**
  * TODO:
  * いったんフロントエンドの実装に集中したいので、サーバーは全てモックを返す
@@ -23,7 +24,16 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   const data = [...(Array(30) as undefined[])].map((_, i) => {
-    return { url: `https://unsplash.it/${i + 1}00/100` };
+    return {
+      beautician_id: i + 1,
+      beautician: "山田 太郎",
+      thumbnail: `https://unsplash.it/${i + 1}00/100`,
+      recent_posts: [...(Array(random(5)) as undefined[])].map((_) => {
+        return {
+          url: "https://unsplash.it/100/100",
+        };
+      }),
+    };
   });
 
   // 仮の値
