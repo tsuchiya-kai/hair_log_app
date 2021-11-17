@@ -1,15 +1,15 @@
 .topPage {
   margin-bottom: 16px;
 
-  @include respond(tab-port) {
-    padding-top: 24px;
-  }
-
   > .mv {
     width: 100%;
     height: calc(80vh - 60px);
     position: relative;
     border-bottom: 1px solid #000;
+
+    @include respond(tab-port) {
+      height: calc(75vh - 60px);
+    }
   }
 
   > .mv > .mask {
@@ -33,7 +33,7 @@
 
   > .mv > .search {
     position: absolute;
-    top: 10%;
+    top: 5%;
     bottom: 0;
     left: 0;
     right: 0;

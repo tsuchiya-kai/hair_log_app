@@ -13,8 +13,16 @@
   transition: 0.3s;
   border: 2px solid $main-blue;
 
+  @include respond(tab-port) {
+    border: 1px solid $main-blue;
+  }
+
   &:disabled {
     background-color: $disabled-gray;
     border: 2px solid $disabled-gray;
+
+    @include respond(tab-port) {
+      border: 1px solid $disabled-gray;
+    }
   }
 }

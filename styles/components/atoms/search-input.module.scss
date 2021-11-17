@@ -11,6 +11,12 @@
     padding: 16px;
     padding-left: 63px;
     width: 100%;
+
+    @include respond(tab-port) {
+      border: 1px solid $lite-gray;
+      padding: 12px;
+      padding-left: 40px;
+    }
   }
 
   > .icon {
@@ -19,5 +25,9 @@
     margin: auto;
     position: absolute;
     top: 0;
+
+    @include respond(tab-port) {
+      left: 12px;
+    }
   }
 }

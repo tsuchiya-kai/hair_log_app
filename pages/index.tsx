@@ -103,7 +103,7 @@ export default function TopPage() {
     setLastPage(page === total_page);
   };
 
-  const params = {
+  const swiperParams = {
     spaceBetween: 30,
     centeredSlides: true,
     autoplay: {
@@ -121,33 +121,50 @@ export default function TopPage() {
     loop: true,
   };
 
+  // NOTE: ライブラリでdomが生成される都合でCSS設計に則ってスタイルを適用することができないためここだけインライン
+  const SwiperSlideStyle = {
+    height: "100%",
+  };
+
+  const SwiperSlideImageStyle = {
+    objectFit: "cover" as const,
+    width: "100%",
+    height: "100%",
+  };
+
   return (
     <>
       <div className={styles.topPage}>
         <div className={styles.mv}>
           <div className={styles.mask} />
           <Swiper
-            {...params}
+            {...swiperParams}
             className={styles.slider}
             style={{ height: "100%" }}
           >
-            <SwiperSlide className={styles.slide} style={{ height: "100%" }}>
+            <SwiperSlide className={styles.slide} style={SwiperSlideStyle}>
               <img
-                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                style={SwiperSlideImageStyle}
                 className={styles.image}
                 src="/images/slider/slider_1.jpeg"
                 alt=""
               />
             </SwiperSlide>
-            <SwiperSlide
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
-            >
-              <img src="/images/slider/slider_2.jpeg" alt="" />
+            <SwiperSlide className={styles.slide} style={SwiperSlideStyle}>
+              <img
+                style={SwiperSlideImageStyle}
+                className={styles.image}
+                src="/images/slider/slider_2.jpeg"
+                alt=""
+              />
             </SwiperSlide>
-            <SwiperSlide
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
-            >
-              <img src="/images/slider/slider_3.jpeg" alt="" />
+            <SwiperSlide className={styles.slide} style={SwiperSlideStyle}>
+              <img
+                style={SwiperSlideImageStyle}
+                className={styles.image}
+                src="/images/slider/slider_3.jpeg"
+                alt=""
+              />
             </SwiperSlide>
           </Swiper>
           <section

@@ -3,6 +3,10 @@
   padding: 0 32px;
   margin: 0 auto;
 
+  @include respond(tab-port) {
+    padding: 0 24px;
+  }
+
   > .subtitle {
     color: $main-black;
     font-size: 2rem;
