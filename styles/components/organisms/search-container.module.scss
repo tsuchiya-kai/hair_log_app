@@ -2,11 +2,11 @@
   z-index: 1;
 
   > .title {
+    color: $main-white;
     font-size: 3.5rem;
     line-height: 1;
     margin-bottom: 32px;
     text-align: center;
-    color: $main-white;
 
     @include respond(tab-port) {
       font-size: 2.5rem;
@@ -15,19 +15,19 @@
   }
 
   > .search {
+    column-gap: 3px;
     display: grid;
     grid-template-columns: auto 120px;
-    column-gap: 3px;
 
     @include respond(tab-port) {
-      padding: 0 8px;
-      margin: 0 auto;
       grid-template-columns: auto 100px;
+      margin: 0 auto;
+      padding: 0 8px;
     }
   }
 
   > .search > .button {
-    letter-spacing: 5px;
     font-weight: bold;
+    letter-spacing: 5px;
   }
 }

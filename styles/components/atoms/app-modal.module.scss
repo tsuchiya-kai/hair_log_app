@@ -9,7 +9,7 @@
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 3;
+    z-index: 5;
   }
 
   > .body > .close {
@@ -29,6 +29,7 @@
   }
 
   > .body > .content.Scroll {
+    height: calc(100% - 79px);
     overflow-y: scroll;
   }
 
@@ -40,7 +41,7 @@
     right: 0;
     top: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 4;
   }
 
   > .mask.Show {

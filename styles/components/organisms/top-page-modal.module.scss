@@ -1,9 +1,13 @@
 .topPageModal {
   height: 60vh;
-  width: 50%;
+  width: 560px;
 
   @include respond(tab-port) {
     height: 85vh;
     width: 90%;
+  }
+
+  > .beautician {
+    font-size: 2rem;
   }
 }
