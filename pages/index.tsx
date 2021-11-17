@@ -23,11 +23,11 @@ export default function TopPage() {
    * 投稿取得系 検索周り
    */
   const [searchWord, setSearchWord] = useState(inputState);
+
   const SearchFor = async () => {
+    setTarget(targetType.search);
     setSearchWord(inputState);
-
     setSearchResult([]); // 初期化
-
     const endpoint = `/api/catalog/search?word=${inputState}`;
 
     const res: AxiosResponse<CatalogDataResponse> =
@@ -53,11 +53,25 @@ export default function TopPage() {
   const [recent, setRecent] = useState<CatalogData[]>([]); // 最近の投稿
   const [searchResult, setSearchResult] = useState<CatalogData[]>([]); //検索結果
 
+  const targetType = {
+    recent: "recent",
+    search: "search",
+  } as const;
+
+  const [target, setTarget] = useState<keyof typeof targetType>(
+    targetType.recent
+  );
+
+  const isFirstFetch =
+    (target === targetType.recent && !recent.length) ||
+    (target === targetType.search && !searchResult.length);
+
   // 無限スクロールの発火
   useEffect(() => {
     if (intersecting && !isLastPage) {
       // 入力があれば、検索結果をfetchする
       if (inputState) {
+        setTarget(targetType.search);
         const fetchRecent = async () => {
           const endpoint = `/api/catalog/search?page=${page}?word=${searchWord}`;
           const res: AxiosResponse<CatalogDataResponse> =
@@ -77,7 +91,7 @@ export default function TopPage() {
         void fetchRecent();
       } else {
         //入力がなければ最新の投稿をfetchする
-
+        setTarget(targetType.recent);
         const fetchRecent = async () => {
           const endpoint = `/api/catalog/recent?page=${page}`;
 
@@ -106,6 +120,7 @@ export default function TopPage() {
   // 参考:https://qiita.com/FumioNonaka/items/3fe39911e3f2479128e8
   useEffect(() => setFooterIsShow(isLastPage), [setFooterIsShow, isLastPage]);
 
+  // スライダー周り
   const swiperParams = {
     spaceBetween: 30,
     centeredSlides: true,
@@ -252,7 +267,7 @@ export default function TopPage() {
           <div
             ref={loaderRef}
             className={`${topPageContentsStyles.loaderwrap} ${
-              isLastPage || !recent.length ? "_invisible" : ""
+              isLastPage || isFirstFetch ? "_invisible" : ""
             }`}
           >
             <LoaderDom className={`${topPageContentsStyles.infinityloader}`} />
