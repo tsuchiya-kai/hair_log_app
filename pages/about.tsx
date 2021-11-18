@@ -23,6 +23,10 @@ export default function About() {
   const mvRef = useRef<HTMLElement>(null);
   const descriptionRef1 = useRef<HTMLElement>(null);
   const descriptionRef2 = useRef<HTMLElement>(null);
+  const searchTitle = useRef<HTMLHeadingElement>(null);
+  const searchIcon = useRef<HTMLDivElement>(null);
+  const categoryTitle = useRef<HTMLHeadingElement>(null);
+  const categoryIcon = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (process.browser) {
       gsap.set([descriptionRef1.current, descriptionRef2.current], {
@@ -125,7 +129,9 @@ export default function About() {
           <div className={styles.grid}>
             <div className={styles.left}>
               {/* TODO: そのうち様々な単位で検索できるようにした方が良い */}
-              <h2 className={styles.title}>美容師単位で検索</h2>
+              <h2 className={styles.title} ref={searchTitle}>
+                美容師単位で検索
+              </h2>
               <p className={styles.text}>
                 テキストテキストテキストテキストテキストテキストテキスト
                 <br />
@@ -136,16 +142,21 @@ export default function About() {
               </p>
             </div>
             <div className={styles.right}>
-              <SearchAnimationIcon className={styles.icon} />
+              <SearchAnimationIcon className={styles.icon} ref={searchIcon} />
             </div>
           </div>
 
           <div className={styles.grid}>
             <div className={styles.left}>
-              <CategoryAnimationIcon className={styles.icon} />
+              <CategoryAnimationIcon
+                className={styles.icon}
+                ref={categoryIcon}
+              />
             </div>
             <div className={styles.right}>
-              <h2 className={styles.title}>カテゴライズ</h2>
+              <h2 className={styles.title} ref={categoryTitle}>
+                カテゴライズ
+              </h2>
               <p className={styles.text}>
                 テキストテキストテキストテキストテキストテキストテキスト
                 <br />
