@@ -119,7 +119,12 @@ export default function TopPage() {
   // footerの出し分け、無限スクロールが最後のページに達した時のみ表示
   const { setFooterIsShow } = useContext(footerContext);
   // 参考:https://qiita.com/FumioNonaka/items/3fe39911e3f2479128e8
-  useEffect(() => setFooterIsShow(isLastPage), [setFooterIsShow, isLastPage]);
+  useEffect(() => {
+    setFooterIsShow(isLastPage);
+    return () => {
+      setFooterIsShow(true);
+    };
+  }, [setFooterIsShow, isLastPage]);
 
   // スライダー周り
   const swiperParams = {
