@@ -1,5 +1,9 @@
 import Head from "next/head";
 import useViewPort from "hooks/useViewPort";
+import {
+  SearchAnimationIcon,
+  CategoryAnimationIcon,
+} from "components/atoms/icon/index";
 import styles from "styles/pages/about-page.module.scss";
 
 export default function About() {
@@ -57,14 +61,35 @@ export default function About() {
             <div className={styles.left}>
               {/* TODO: そのうち様々な単位で検索できるようにした方が良い */}
               <h2 className={styles.title}>美容師単位で検索</h2>
+              <p className={styles.text}>
+                テキストテキストテキストテキストテキストテキストテキスト
+                <br />
+                テキストテキストテキストテキストテキストテキストテキスト
+                <br />
+                テキストテキストテキストテキストテキストテキストテキスト
+                <br />
+              </p>
             </div>
-            <div className={styles.right}>right</div>
+            <div className={styles.right}>
+              <SearchAnimationIcon className={styles.icon} />
+            </div>
           </div>
 
           <div className={styles.grid}>
-            <div className={styles.left}>left</div>
+            <div className={styles.left}>
+              <CategoryAnimationIcon className={styles.icon} />
+            </div>
             <div className={styles.right}>
               <h2 className={styles.title}>カテゴライズ</h2>
+              <p className={styles.text}>
+                テキストテキストテキストテキストテキストテキストテキスト
+                <br />
+                テキストテキストテキストテキストテキストテキストテキスト
+                <br />
+                テキストテキストテキストテキストテキストテキストテキスト
+                <br />
+              </p>
+              s
             </div>
           </div>
         </section>

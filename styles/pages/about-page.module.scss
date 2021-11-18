@@ -23,7 +23,7 @@
     position: absolute;
     right: 5%;
     bottom: 20%;
-    color: $main-black;
+    color: $main-blue;
     text-shadow: 1px 2px 18px rgb(0 0 0 / 10%);
 
     @include respond(tab-port) {
@@ -66,21 +66,40 @@
     grid-template-columns: repeat(2, 1fr);
     padding: 16px;
     column-gap: 16px;
+    margin-bottom: 96px;
   }
 
   > .forte > .grid > .left {
-    text-align: center;
   }
 
   > .forte > .grid > .left > .title {
     font-size: 3rem;
+    margin-bottom: 16px;
+  }
+
+  > .forte > .grid > .left > .text {
+    font-size: 2rem;
+  }
+
+  > .forte > .grid > .left > .icon {
+    margin-top: 80px;
+    margin-left: -100px;
   }
 
   > .forte > .grid > .right {
-    text-align: center;
   }
 
   > .forte > .grid > .right > .title {
     font-size: 3rem;
+    margin-bottom: 16px;
+  }
+
+  > .forte > .grid > .right > .text {
+    font-size: 2rem;
+  }
+
+  > .forte > .grid > .right > .icon {
+    margin-top: 80px;
+    margin-right: -100px;
   }
 }
