@@ -13,9 +13,9 @@
   }
 
   > .linkbutton {
-    padding: 8px;
     color: $main-white;
     margin-bottom: 24px;
+    padding: 8px;
   }
 
   > .imagewrap {
@@ -36,19 +36,19 @@
     appearance: none;
     background-color: transparent;
     border: none;
-    cursor: pointer;
-    font-size: 2rem;
     color: $main-blue;
-    margin: 0 auto;
+    cursor: pointer;
     display: block;
-    padding: 8px 0;
+    font-size: 2rem;
+    margin: 0 auto;
     margin-bottom: 16px;
+    padding: 8px 0;
   }
 
   > .mores {
-    transition: 0.3s;
-    overflow: hidden;
     height: 0;
+    overflow: hidden;
+    transition: 0.3s;
   }
 
   > .mores.Show {

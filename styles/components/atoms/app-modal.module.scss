@@ -30,8 +30,8 @@
 
   > .body > .content.Scroll {
     height: calc(100% - 79px);
-    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
   }
 
   .mask {
