@@ -126,14 +126,6 @@ export default function About() {
           },
           "-=0.2"
         );
-
-      // gsap.to(descriptionRef.current, {
-      //   autoAlpha: 1, //opacity: 1; visibility：visible;が付与される
-      //   scrollTrigger: {
-      //     trigger: mvRef.current,
-      //     start: "bottom center",
-      //   },
-      // });
     }
   });
   return (
