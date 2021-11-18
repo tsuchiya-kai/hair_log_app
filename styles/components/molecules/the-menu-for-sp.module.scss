@@ -16,9 +16,9 @@
   }
 
   > .link {
-    text-decoration: none;
+    color: $main-blue;
     display: block;
     padding: 16px 24px;
-    color: $main-blue;
+    text-decoration: none;
   }
 }

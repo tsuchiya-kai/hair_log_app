@@ -1,8 +1,8 @@
 .workInProgressSection {
-  display: flex;
   align-items: center;
-  justify-content: center;
+  display: flex;
   height: calc(100vh - 60px);
+  justify-content: center;
   width: 100%;
 
   > .inner > .title {

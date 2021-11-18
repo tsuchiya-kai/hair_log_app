@@ -15,12 +15,13 @@
   }
 
   > .link {
-    text-decoration: none;
+    color: $main-blue;
     display: block;
     padding: 16px;
-    color: $main-blue;
+    text-decoration: none;
     transition: 0.3s;
   }
+
   > .link:hover {
     background-color: $hover-fray;
   }
