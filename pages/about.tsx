@@ -24,8 +24,10 @@ export default function About() {
   const descriptionRef1 = useRef<HTMLElement>(null);
   const descriptionRef2 = useRef<HTMLElement>(null);
   const searchTitle = useRef<HTMLHeadingElement>(null);
+  const searchText = useRef<HTMLHeadingElement>(null);
   const searchIcon = useRef<HTMLDivElement>(null);
   const categoryTitle = useRef<HTMLHeadingElement>(null);
+  const categoryText = useRef<HTMLHeadingElement>(null);
   const categoryIcon = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (process.browser) {
@@ -55,7 +57,64 @@ export default function About() {
             y: 0,
             ease: Power4.easeOut,
           },
-          "+=0.2"
+          "-=0.2"
+        );
+
+      // forte周り
+      gsap.set(
+        [
+          searchTitle.current,
+          searchText.current,
+          searchIcon.current,
+          categoryTitle.current,
+          categoryText.current,
+          categoryIcon.current,
+        ],
+        {
+          autoAlpha: 0,
+        }
+      );
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: descriptionRef2.current,
+            start: "top center",
+          },
+        })
+        .to(searchTitle.current, 0.5, {
+          autoAlpha: 1,
+          ease: Power4.easeOut,
+        })
+        .to(searchText.current, 0.5, {
+          autoAlpha: 1,
+          ease: Power4.easeOut,
+        })
+        .to(
+          searchIcon.current,
+          0.5,
+          {
+            autoAlpha: 1,
+            ease: Power4.easeOut,
+          },
+          "-=0.3"
+        )
+        .to(categoryTitle.current, 0.5, {
+          autoAlpha: 1,
+          ease: Power4.easeOut,
+        })
+        .to(categoryText.current, 0.5, {
+          autoAlpha: 1,
+          ease: Power4.easeOut,
+        })
+        .to(
+          categoryIcon.current,
+          0.5,
+          {
+            autoAlpha: 1,
+            ease: Power4.easeOut,
+          },
+          "-=0.3"
         );
 
       // gsap.to(descriptionRef.current, {
@@ -132,7 +191,7 @@ export default function About() {
               <h2 className={styles.title} ref={searchTitle}>
                 美容師単位で検索
               </h2>
-              <p className={styles.text}>
+              <p className={styles.text} ref={searchText}>
                 テキストテキストテキストテキストテキストテキストテキスト
                 <br />
                 テキストテキストテキストテキストテキストテキストテキスト
@@ -157,7 +216,7 @@ export default function About() {
               <h2 className={styles.title} ref={categoryTitle}>
                 カテゴライズ
               </h2>
-              <p className={styles.text}>
+              <p className={styles.text} ref={categoryText}>
                 テキストテキストテキストテキストテキストテキストテキスト
                 <br />
                 テキストテキストテキストテキストテキストテキストテキスト
