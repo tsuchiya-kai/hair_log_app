@@ -1,7 +1,11 @@
 import Head from "next/head";
+import useViewPort from "hooks/useViewPort";
 import styles from "styles/pages/about-page.module.scss";
 
 export default function About() {
+  const { windowWidth } = useViewPort();
+  const tabPortBreakPoint = 768;
+  const isPcSize = windowWidth ? windowWidth > tabPortBreakPoint : false;
   return (
     <>
       <Head>
@@ -20,9 +24,13 @@ export default function About() {
         <section className={styles.mv}>
           <div className={styles.mask} />
           <h2 className={styles.title}>
-            なりたい自分を
+            なりたい
+            {isPcSize ? "" : <br />}
+            自分を
             <br />
-            より、見つけやすく。
+            より、
+            {isPcSize ? "" : <br />}
+            見つけやすく。
           </h2>
           <img
             className={styles.image}

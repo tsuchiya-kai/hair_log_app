@@ -1,7 +1,7 @@
 import { debounce } from "lodash";
 import { useState, useEffect } from "react";
 
-export function useViewPort() {
+export default function useViewPort() {
   const [windowWidth, setWindowWidth] = useState<number>();
   const [windowHeight, setWindowHeight] = useState<number>();
   const [clientHeight, setClientHeight] = useState<number>();

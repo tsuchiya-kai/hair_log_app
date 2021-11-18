@@ -25,6 +25,14 @@
     bottom: 20%;
     color: $main-black;
     text-shadow: 1px 2px 18px rgb(0 0 0 / 10%);
+
+    @include respond(tab-port) {
+      right: 0;
+      top: 30%;
+      bottom: auto;
+      font-size: 4.5vh;
+      text-shadow: 1px 2px 18px rgb(255 255 255 / 70%);
+    }
   }
 
   > .mv > .image {

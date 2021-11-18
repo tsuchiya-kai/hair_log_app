@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AnimationHamburgerButtonOnlySp } from "components/atoms/index";
 import { MenuForPc, MenuForSp } from "components/molecules/index";
-import { useViewPort } from "hooks/useViewPort";
+import useViewPort from "hooks/useViewPort";
 import styles from "styles/components/organisms/the-menu.module.scss";
 
 type Props = {
