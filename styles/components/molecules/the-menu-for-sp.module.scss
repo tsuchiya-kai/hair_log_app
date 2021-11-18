@@ -11,9 +11,11 @@
   transition: 0.3s;
   width: 304px;
   z-index: 4;
+  opacity: 0;
 
   &.Show {
     transform: translate(0);
+    opacity: 1;
   }
 
   > .link {
