@@ -8,10 +8,11 @@ import styles from "styles/components/molecules/the-menu-for-sp.module.scss";
 type Props = {
   className?: string;
   isShow: boolean;
+  isShowSetter: (flag: boolean) => void;
 };
 
 export default function TheMenuForSp(props: Props) {
-  const { className, isShow, ...rest } = props;
+  const { className, isShow, isShowSetter, ...rest } = props;
   const classNames = `${styles.theMenuForSp} ${className ?? ""} ${
     isShow ? styles.Show : ""
   }`;
@@ -32,13 +33,19 @@ export default function TheMenuForSp(props: Props) {
     <>
       <section {...rest} className={classNames} ref={target}>
         <Link href={urls.topPageUrl}>
-          <a>トップページ</a>
+          <a className={styles.link} onClick={() => isShowSetter(false)}>
+            トップページ
+          </a>
         </Link>
         <Link href={urls.postPageUrl}>
-          <a>投稿する</a>
+          <a className={styles.link} onClick={() => isShowSetter(false)}>
+            投稿する
+          </a>
         </Link>
         <Link href={urls.aboutPageUrl}>
-          <a>ヘアログとは</a>
+          <a className={styles.link} onClick={() => isShowSetter(false)}>
+            ヘアログとは
+          </a>
         </Link>
       </section>
     </>

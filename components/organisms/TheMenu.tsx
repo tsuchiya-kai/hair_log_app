@@ -36,13 +36,18 @@ export default function TheMenu(props: Props) {
 
       {isPcSize ? (
         <MenuForPc
-          isShow={pcMenuToggleState}
           className={styles.pc}
+          isShow={pcMenuToggleState}
+          isShowSetter={setPcMenuToggleState}
           onMouseOver={toggleVisibleFlagForPc}
           onMouseOut={toggleVisibleFlagForPc}
         />
       ) : (
-        <MenuForSp isShow={spMenuToggleState} className={styles.pc} />
+        <MenuForSp
+          className={styles.pc}
+          isShowSetter={setSpMenuToggleState}
+          isShow={spMenuToggleState}
+        />
       )}
     </div>
   );
