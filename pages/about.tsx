@@ -33,6 +33,15 @@ export default function About() {
 
         <section className={styles.description}>
           <h1 className={styles.title}>HairLogとは</h1>
+          <p className={styles.text}>テキスト1テキスト1テキスト1</p>
+          <p className={styles.text}>
+            テキスト2テキスト2テキスト2テキスト2テキスト2テキスト2
+          </p>
+          <p className={styles.text}>
+            テキスト3テキスト3テキスト3テキスト3テキスト3テキスト3
+            <br />
+            テキスト3テキスト3テキスト3テキスト3テキスト3テキスト3
+          </p>
         </section>
 
         <section className={styles.forte}>
