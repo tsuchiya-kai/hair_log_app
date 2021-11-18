@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useContext } from "react";
+import Head from "next/head";
 import axios from "lib/axiosIntercepted";
 import useIntersection from "hooks/useIntersection";
 import { footerContext } from "components/layout";
@@ -166,6 +167,15 @@ export default function TopPage() {
 
   return (
     <>
+      <Head>
+        <title>HairLog ヘアログ</title>
+        <meta property="og:title" content="ヘアログ トップページ" />
+        <meta
+          property="og:description"
+          content="美容師向けカタログ作成アプリです"
+        />
+        <meta name="description" content="美容師向けカタログ作成アプリです" />
+      </Head>
       <div className={styles.topPage}>
         <div className={styles.mv}>
           <div className={styles.mask} />
