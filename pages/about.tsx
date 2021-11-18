@@ -57,7 +57,7 @@ export default function About() {
             y: 0,
             ease: Power4.easeOut,
           },
-          "-=0.2"
+          "-=0.3"
         );
 
       // forte周り
@@ -93,7 +93,7 @@ export default function About() {
             autoAlpha: 1,
             ease: Power4.easeOut,
           },
-          "-=0.4"
+          "-=0.3"
         )
         .to(
           searchIcon.current,
@@ -102,7 +102,7 @@ export default function About() {
             autoAlpha: 1,
             ease: Power4.easeOut,
           },
-          "-=0.3"
+          "-=0.2"
         )
         .to(categoryTitle.current, 0.5, {
           autoAlpha: 1,
@@ -115,7 +115,7 @@ export default function About() {
             autoAlpha: 1,
             ease: Power4.easeOut,
           },
-          "-=0.4"
+          "-=0.3"
         )
         .to(
           categoryIcon.current,
@@ -124,7 +124,7 @@ export default function About() {
             autoAlpha: 1,
             ease: Power4.easeOut,
           },
-          "-=0.3"
+          "-=0.2"
         );
 
       // gsap.to(descriptionRef.current, {
