@@ -152,7 +152,12 @@ export default function TopPage() {
   };
 
   //モーダル周り
-  const [modalContents, setModalContent] = useState<CatalogData>();
+  const [modalContents, setModalContent] = useState<CatalogData>({
+    beautician: "",
+    beautician_id: 1,
+    thumbnail: "",
+    recent_posts: [],
+  });
   const toBeSelected = (arg: {
     index: number;
     target: keyof typeof targetType;

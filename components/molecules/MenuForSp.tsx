@@ -31,7 +31,7 @@ export default function TheMenuForSp(props: Props) {
 
   return (
     <>
-      <section {...rest} className={classNames} ref={target}>
+      <div {...rest} className={classNames} ref={target}>
         <Link href={urls.topPageUrl}>
           <a className={styles.link} onClick={() => isShowSetter(false)}>
             トップページ
@@ -47,7 +47,7 @@ export default function TheMenuForSp(props: Props) {
             ヘアログとは
           </a>
         </Link>
-      </section>
+      </div>
     </>
   );
 }
