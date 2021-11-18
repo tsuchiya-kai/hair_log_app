@@ -6,7 +6,7 @@ export default function BeauticianDetail() {
   return (
     <>
       <Head>
-        <title>まるまるさんのカタログ</title>
+        <title>〇〇さんのカタログ</title>
         <meta property="og:title" content="カタログ" />
       </Head>
       <WIPSection title="カタログページ" description={description} />
