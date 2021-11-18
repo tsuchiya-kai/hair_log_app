@@ -29,7 +29,7 @@ Basic 認証：
 - typescript : ^4.4.4
 
 ## Modules
-
+- gsap
 - ESLint
 - Prettier
 - stylelint
