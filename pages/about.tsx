@@ -89,7 +89,6 @@ export default function About() {
                 テキストテキストテキストテキストテキストテキストテキスト
                 <br />
               </p>
-              s
             </div>
           </div>
         </section>
