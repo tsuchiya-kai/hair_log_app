@@ -12,8 +12,14 @@
     margin-bottom: 16px;
   }
 
+  > .linkbutton {
+    color: $main-white;
+    margin-bottom: 24px;
+    padding: 8px;
+  }
+
   > .imagewrap {
-    margin-bottom: 64px;
+    margin-bottom: 8px;
   }
 
   > .imagewrap > .image {
@@ -26,6 +32,44 @@
     }
   }
 
-  // > .imagewrap > .description {
-  // }
+  > .showmore {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    color: $main-blue;
+    cursor: pointer;
+    display: block;
+    font-size: 2rem;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    padding: 8px 0;
+  }
+
+  > .mores {
+    height: 0;
+    overflow: hidden;
+    transition: 0.3s;
+  }
+
+  > .mores.Show {
+    height: auto; // TODO: アニメーションを効かせたい
+  }
+
+  > .mores > .imagewrap {
+    margin-bottom: 64px;
+  }
+
+  > .mores > .imagewrap:last-of-type {
+    margin-bottom: 16px;
+  }
+
+  > .mores > .imagewrap > .image {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+
+    @include respond(tab-port) {
+      height: 150px;
+    }
+  }
 }

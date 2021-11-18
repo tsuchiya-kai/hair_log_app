@@ -1,5 +1,6 @@
-.appButton {
+.appLinkButton {
   appearance: none;
+  background-color: transparent;
   background-color: $main-blue;
   border: none;
   border: 1px solid $main-blue;
@@ -19,5 +20,11 @@
     @include respond(tab-port) {
       border: 1px solid $disabled-gray;
     }
+  }
+
+  > .link {
+    color: $main-white;
+    font-weight: bold;
+    text-decoration: none;
   }
 }
