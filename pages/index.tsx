@@ -178,7 +178,7 @@ export default function TopPage() {
               <img
                 style={SwiperSlideImageStyle}
                 className={styles.image}
-                src="/images/slider/slider_1.jpeg"
+                src="/images/slider/slider_6.png"
                 alt=""
               />
             </SwiperSlide>
@@ -186,7 +186,7 @@ export default function TopPage() {
               <img
                 style={SwiperSlideImageStyle}
                 className={styles.image}
-                src="/images/slider/slider_2.jpeg"
+                src="/images/slider/slider_8.png"
                 alt=""
               />
             </SwiperSlide>

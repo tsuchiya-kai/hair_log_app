@@ -14,4 +14,11 @@
   &.Show {
     transform: translate(0);
   }
+
+  > .link {
+    text-decoration: none;
+    display: block;
+    padding: 16px 24px;
+    color: $main-blue;
+  }
 }

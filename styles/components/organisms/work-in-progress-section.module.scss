@@ -1,0 +1,26 @@
+.workInProgressSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 60px);
+  width: 100%;
+
+  > .inner > .title {
+    font-size: 2.5rem;
+    margin-bottom: 32px;
+  }
+
+  > .inner > .text {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  > .inner > .detailcontainer {
+    text-align: left;
+  }
+
+  > .inner > .detailcontainer > .subtitle {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+}
