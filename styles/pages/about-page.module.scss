@@ -43,6 +43,9 @@
 
   > .description {
     text-align: center;
+    max-width: 768px;
+    margin: 0 auto;
+    margin-bottom: 180px;
   }
 
   > .description > .title {
@@ -51,5 +54,33 @@
 
   > .description > .text {
     font-size: 2.5rem;
+  }
+
+  > .forte {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  > .forte > .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16px;
+    column-gap: 16px;
+  }
+
+  > .forte > .grid > .left {
+    text-align: center;
+  }
+
+  > .forte > .grid > .left > .title {
+    font-size: 3rem;
+  }
+
+  > .forte > .grid > .right {
+    text-align: center;
+  }
+
+  > .forte > .grid > .right > .title {
+    font-size: 3rem;
   }
 }

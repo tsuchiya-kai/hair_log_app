@@ -53,18 +53,19 @@ export default function About() {
         </section>
 
         <section className={styles.forte}>
-          <div className={styles.flex}>
+          <div className={styles.grid}>
             <div className={styles.left}>
-              <h2>美容師を検索</h2>
+              {/* TODO: そのうち様々な単位で検索できるようにした方が良い */}
+              <h2 className={styles.title}>美容師単位で検索</h2>
             </div>
-            <div className={styles.right}></div>
+            <div className={styles.right}>right</div>
           </div>
 
-          <div className={styles.flex}>
-            <div className={styles.left}>
-              <h2>カテゴライズ</h2>
+          <div className={styles.grid}>
+            <div className={styles.left}>left</div>
+            <div className={styles.right}>
+              <h2 className={styles.title}>カテゴライズ</h2>
             </div>
-            <div className={styles.right}></div>
           </div>
         </section>
       </div>
