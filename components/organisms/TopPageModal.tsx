@@ -1,4 +1,4 @@
-import { AppModal } from "components/atoms/index";
+import { AppModal, AppLinkButton } from "components/atoms/index";
 import Link from "next/link";
 import urls from "lib/urls";
 import styles from "styles/components/organisms/top-page-modal.module.scss";
@@ -19,9 +19,14 @@ export default function TopPageModal({ data, isShow, switchFunc }: Props) {
     >
       <div className={innerStyles.topPageModalInner}>
         <h3 className={innerStyles.beautician}>{data.beautician}</h3>
-        <Link href={urls.catalogPageUrl(data.beautician_id)}>
-          <a>この美容師のカタログを見る</a>
-        </Link>
+        <AppLinkButton
+          className={innerStyles.linkbutton}
+          href={urls.catalogPageUrl(data.beautician_id)}
+          radius="30px"
+          disabled={!data.beautician_id}
+        >
+          この美容師のカタログを見る
+        </AppLinkButton>
 
         {data.recent_posts.map((post, i) => {
           return (
