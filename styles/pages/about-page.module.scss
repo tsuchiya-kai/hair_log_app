@@ -1,0 +1,118 @@
+.aboutPage {
+  > .mv {
+    height: calc(100vh - 60px);
+    width: 100%;
+    position: relative;
+    margin-bottom: 160px;
+  }
+
+  > .mv > .mask {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(80, 80, 80, 0.2);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  > .mv > .title {
+    font-size: 4.5vw;
+    position: absolute;
+    right: 5%;
+    bottom: 20%;
+    color: $main-blue;
+    text-shadow: 1px 2px 18px rgb(0 0 0 / 10%);
+
+    @include respond(tab-port) {
+      right: 0;
+      top: 30%;
+      bottom: auto;
+      font-size: 4.5vh;
+      text-shadow: 1px 2px 18px rgb(255 255 255 / 70%);
+    }
+  }
+
+  > .mv > .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  > .description {
+    text-align: center;
+    max-width: 768px;
+    margin: 0 auto;
+    margin-bottom: 64px;
+  }
+
+  > .description > .title {
+    font-size: 4.5rem;
+  }
+
+  > .description > .text {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  > .subdescription {
+    text-align: center;
+    max-width: 768px;
+    margin: 0 auto;
+    margin-bottom: 160px;
+  }
+
+  > .subdescription > .text {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  > .forte {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  > .forte > .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16px;
+    column-gap: 16px;
+    margin-bottom: 96px;
+  }
+
+  > .forte > .grid > .left {
+  }
+
+  > .forte > .grid > .left > .title {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+
+  > .forte > .grid > .left > .text {
+    font-size: 2rem;
+  }
+
+  > .forte > .grid > .left > .icon {
+    margin-top: 80px;
+    margin-left: -100px;
+  }
+
+  > .forte > .grid > .right {
+  }
+
+  > .forte > .grid > .right > .title {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+
+  > .forte > .grid > .right > .text {
+    font-size: 2rem;
+  }
+
+  > .forte > .grid > .right > .icon {
+    margin-top: 80px;
+    margin-right: -100px;
+  }
+}

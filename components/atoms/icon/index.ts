@@ -2,5 +2,6 @@ export { default as SearchIcon } from "./SearchIcon";
 export { default as SiteLogo } from "./SiteLogo";
 export { default as HamburgerMenuIcon } from "./HamburgerMenuIcon";
 export { default as SearchAnimationIcon } from "./SearchAnimationIcon";
+export { default as CategoryAnimationIcon } from "./CategoryAnimationIcon";
 export { default as CrossMarkIcon } from "./CrossMarkIcon";
 export { default as LoaderDom } from "./LoaderDom";

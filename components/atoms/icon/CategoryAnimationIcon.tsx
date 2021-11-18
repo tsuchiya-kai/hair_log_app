@@ -1,5 +1,5 @@
 import Lottie from "react-lottie";
-import * as animationData from "public/lottie/search.json";
+import * as animationData from "public/lottie/category.json";
 import React, { Ref, forwardRef } from "react";
 
 type Props = {
@@ -15,7 +15,7 @@ const defaultOptions = {
   },
 };
 
-function SearchAnimationIcon({ className }: Props, ref: Ref<HTMLDivElement>) {
+function CategoryAnimationIcon({ className }: Props, ref: Ref<HTMLDivElement>) {
   return (
     <div className={className} ref={ref}>
       <Lottie options={defaultOptions} width={250} />
@@ -23,7 +23,7 @@ function SearchAnimationIcon({ className }: Props, ref: Ref<HTMLDivElement>) {
   );
 }
 
-const forwardRefSearchAnimationIcon = forwardRef<HTMLDivElement, Props>(
-  SearchAnimationIcon
+const forwardRefCategoryAnimationIcon = forwardRef<HTMLDivElement, Props>(
+  CategoryAnimationIcon
 );
-export default forwardRefSearchAnimationIcon;
+export default forwardRefCategoryAnimationIcon;
