@@ -1,15 +1,68 @@
+import { useRef, useEffect } from "react";
 import Head from "next/head";
 import useViewPort from "hooks/useViewPort";
 import {
   SearchAnimationIcon,
   CategoryAnimationIcon,
 } from "components/atoms/icon/index";
+import { gsap, Power4 } from "gsap";
+// NOTE: https://greensock.com/forums/topic/24661-nextjs-and-gsap/
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "styles/pages/about-page.module.scss";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
   const { windowWidth } = useViewPort();
   const tabPortBreakPoint = 768;
+  // TODO: window objectが取得できるまでの一瞬チラつく
   const isPcSize = windowWidth ? windowWidth > tabPortBreakPoint : false;
+
+  /**
+   * アニメーション周り
+   */
+  const mvRef = useRef<HTMLElement>(null);
+  const descriptionRef1 = useRef<HTMLElement>(null);
+  const descriptionRef2 = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (process.browser) {
+      gsap.set([descriptionRef1.current, descriptionRef2.current], {
+        opacity: 0,
+        y: 150,
+      }); //初期状態としてopacity: 0;とvisibility: hidden;が指定される
+
+      // description周り
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: mvRef.current,
+            start: "bottom center",
+          },
+        })
+        .to(descriptionRef1.current, 0.8, {
+          opacity: 1,
+          y: 0,
+          ease: Power4.easeOut,
+        })
+        .to(
+          descriptionRef2.current,
+          0.8,
+          {
+            opacity: 1,
+            y: 0,
+            ease: Power4.easeOut,
+          },
+          "+=0.2"
+        );
+
+      // gsap.to(descriptionRef.current, {
+      //   autoAlpha: 1, //opacity: 1; visibility：visible;が付与される
+      //   scrollTrigger: {
+      //     trigger: mvRef.current,
+      //     start: "bottom center",
+      //   },
+      // });
+    }
+  });
   return (
     <>
       <Head>
@@ -25,7 +78,7 @@ export default function About() {
         />
       </Head>
       <div className={styles.aboutPage}>
-        <section className={styles.mv}>
+        <section className={styles.mv} ref={mvRef}>
           <div className={styles.mask} />
           <h2 className={styles.title}>
             なりたい
@@ -43,8 +96,20 @@ export default function About() {
           />
         </section>
 
-        <section className={styles.description}>
+        <section className={styles.description} ref={descriptionRef1}>
           <h1 className={styles.title}>HairLogとは</h1>
+          <p className={styles.text}>テキスト1テキスト1テキスト1</p>
+          <p className={styles.text}>
+            テキスト2テキスト2テキスト2テキスト2テキスト2テキスト2
+          </p>
+          <p className={styles.text}>
+            テキスト3テキスト3テキスト3テキスト3テキスト3テキスト3
+            <br />
+            テキスト3テキスト3テキスト3テキスト3テキスト3テキスト3
+          </p>
+        </section>
+
+        <section className={styles.subdescription} ref={descriptionRef2}>
           <p className={styles.text}>テキスト1テキスト1テキスト1</p>
           <p className={styles.text}>
             テキスト2テキスト2テキスト2テキスト2テキスト2テキスト2
