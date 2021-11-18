@@ -1,8 +1,8 @@
 import { AppModal, AppLinkButton } from "components/atoms/index";
-import Link from "next/link";
 import urls from "lib/urls";
 import styles from "styles/components/organisms/top-page-modal.module.scss";
 import innerStyles from "styles/components/organisms/top-page-modal-inner.module.scss";
+import { useState } from "react";
 
 type Props = {
   data: CatalogData;
@@ -10,6 +10,7 @@ type Props = {
   switchFunc: () => void;
 };
 export default function TopPageModal({ data, isShow, switchFunc }: Props) {
+  const [isShowMore, setShowMore] = useState(false);
   return (
     <AppModal
       className={styles.topPageModal}
@@ -19,6 +20,46 @@ export default function TopPageModal({ data, isShow, switchFunc }: Props) {
     >
       <div className={innerStyles.topPageModalInner}>
         <h3 className={innerStyles.beautician}>{data.beautician}</h3>
+
+        {/* 一つ目の投稿は常に表示 */}
+        <div className={innerStyles.imagewrap}>
+          <img
+            className={innerStyles.image}
+            src={data.recent_posts[0]?.url}
+            alt="投稿-1"
+          />
+          <p className={innerStyles.description}>
+            {data.recent_posts[0]?.description}
+          </p>
+        </div>
+
+        <div
+          className={`${innerStyles.mores} ${
+            isShowMore ? innerStyles.Show : ""
+          }`}
+        >
+          {data.recent_posts.map((post, i) => {
+            if (i === 0) return;
+            return (
+              <div className={innerStyles.imagewrap} key={i + 1}>
+                <img
+                  className={innerStyles.image}
+                  src={post.url}
+                  alt={`投稿${i + 1}`}
+                />
+                <p className={innerStyles.description}>{post.description}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        <button
+          className={innerStyles.showmore}
+          onClick={() => setShowMore((prev) => !prev)}
+        >
+          {isShowMore ? "Display Less" : "Show More"}
+        </button>
+
         <AppLinkButton
           className={innerStyles.linkbutton}
           href={urls.catalogPageUrl(data.beautician_id)}
@@ -27,19 +68,6 @@ export default function TopPageModal({ data, isShow, switchFunc }: Props) {
         >
           この美容師のカタログを見る
         </AppLinkButton>
-
-        {data.recent_posts.map((post, i) => {
-          return (
-            <div className={innerStyles.imagewrap} key={i + 1}>
-              <img
-                className={innerStyles.image}
-                src={post.url}
-                alt={`投稿${i + 1}`}
-              />
-              <p className={innerStyles.description}>{post.description}</p>
-            </div>
-          );
-        })}
       </div>
     </AppModal>
   );

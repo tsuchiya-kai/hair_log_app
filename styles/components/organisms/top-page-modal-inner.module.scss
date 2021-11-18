@@ -19,7 +19,7 @@
   }
 
   > .imagewrap {
-    margin-bottom: 64px;
+    margin-bottom: 8px;
   }
 
   > .imagewrap > .image {
@@ -32,6 +32,44 @@
     }
   }
 
-  // > .imagewrap > .description {
-  // }
+  > .showmore {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: $main-blue;
+    margin: 0 auto;
+    display: block;
+    padding: 8px 0;
+    margin-bottom: 16px;
+  }
+
+  > .mores {
+    transition: 0.3s;
+    overflow: hidden;
+    height: 0;
+  }
+
+  > .mores.Show {
+    height: auto; // TODO: アニメーションを効かせたい
+  }
+
+  > .mores > .imagewrap {
+    margin-bottom: 64px;
+  }
+
+  > .mores > .imagewrap:last-of-type {
+    margin-bottom: 16px;
+  }
+
+  > .mores > .imagewrap > .image {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+
+    @include respond(tab-port) {
+      height: 150px;
+    }
+  }
 }
