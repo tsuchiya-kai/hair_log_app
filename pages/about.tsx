@@ -86,10 +86,15 @@ export default function About() {
           autoAlpha: 1,
           ease: Power4.easeOut,
         })
-        .to(searchText.current, 0.5, {
-          autoAlpha: 1,
-          ease: Power4.easeOut,
-        })
+        .to(
+          searchText.current,
+          0.5,
+          {
+            autoAlpha: 1,
+            ease: Power4.easeOut,
+          },
+          "-=0.4"
+        )
         .to(
           searchIcon.current,
           0.5,
@@ -103,10 +108,15 @@ export default function About() {
           autoAlpha: 1,
           ease: Power4.easeOut,
         })
-        .to(categoryText.current, 0.5, {
-          autoAlpha: 1,
-          ease: Power4.easeOut,
-        })
+        .to(
+          categoryText.current,
+          0.5,
+          {
+            autoAlpha: 1,
+            ease: Power4.easeOut,
+          },
+          "-=0.4"
+        )
         .to(
           categoryIcon.current,
           0.5,
