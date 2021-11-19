@@ -46,15 +46,27 @@
     max-width: 768px;
     margin: 0 auto;
     margin-bottom: 64px;
+
+    @include respond(tab-port) {
+      padding: 0 16px;
+    }
   }
 
   > .description > .title {
     font-size: 4.5rem;
+
+    @include respond(tab-port) {
+      font-size: 2rem;
+    }
   }
 
   > .description > .text {
     font-size: 2.5rem;
     margin-bottom: 16px;
+
+    @include respond(tab-port) {
+      font-size: 1.6rem;
+    }
   }
 
   > .subdescription {
@@ -62,11 +74,19 @@
     max-width: 768px;
     margin: 0 auto;
     margin-bottom: 160px;
+
+    @include respond(tab-port) {
+      padding: 0 16px;
+    }
   }
 
   > .subdescription > .text {
     font-size: 2.5rem;
     margin-bottom: 16px;
+
+    @include respond(tab-port) {
+      font-size: 1.6rem;
+    }
   }
 
   > .forte {
@@ -80,39 +100,73 @@
     padding: 16px;
     column-gap: 16px;
     margin-bottom: 96px;
-  }
 
-  > .forte > .grid > .left {
+    // TODO: いったん消しているがレイアウトを考えたい
+    @include respond(phone) {
+      display: block;
+    }
   }
 
   > .forte > .grid > .left > .title {
     font-size: 3rem;
     margin-bottom: 16px;
+
+    @include respond(tab-port) {
+      font-size: 1.8rem;
+    }
   }
 
   > .forte > .grid > .left > .text {
     font-size: 2rem;
+
+    @include respond(tab-port) {
+      font-size: 1.6rem;
+    }
   }
 
   > .forte > .grid > .left > .icon {
     margin-top: 80px;
     margin-left: -100px;
-  }
 
-  > .forte > .grid > .right {
+    @include respond(tab-port) {
+      margin-top: 64px;
+      margin-left: -50px;
+    }
+    // TODO: いったん消しているがレイアウトを考えたい
+    @include respond(phone) {
+      display: none;
+    }
   }
 
   > .forte > .grid > .right > .title {
     font-size: 3rem;
     margin-bottom: 16px;
+
+    @include respond(tab-port) {
+      font-size: 1.8rem;
+    }
   }
 
   > .forte > .grid > .right > .text {
     font-size: 2rem;
+
+    @include respond(tab-port) {
+      font-size: 1.6rem;
+    }
   }
 
   > .forte > .grid > .right > .icon {
     margin-top: 80px;
     margin-right: -100px;
+
+    @include respond(tab-port) {
+      margin-top: 64px;
+      margin-right: auto;
+    }
+
+    // TODO: いったん消しているがレイアウトを考えたい
+    @include respond(phone) {
+      display: none;
+    }
   }
 }
