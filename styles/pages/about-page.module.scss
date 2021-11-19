@@ -1,51 +1,51 @@
 .aboutPage {
   > .mv {
     height: calc(100vh - 60px);
-    width: 100%;
-    position: relative;
     margin-bottom: 160px;
+    position: relative;
+    width: 100%;
   }
 
   > .mv > .mask {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(80, 80, 80, 0.2);
-    position: absolute;
-    top: 0;
+    background-color: rgb(80 80 80 / 20%);
     bottom: 0;
+    height: 100%;
     left: 0;
+    position: absolute;
     right: 0;
+    top: 0;
+    width: 100%;
     z-index: 1;
   }
 
   > .mv > .title {
+    bottom: 20%;
+    color: $main-blue;
     font-size: 4.5vw;
     position: absolute;
     right: 5%;
-    bottom: 20%;
-    color: $main-blue;
     text-shadow: 1px 2px 18px rgb(0 0 0 / 10%);
 
     @include respond(tab-port) {
-      right: 0;
-      top: 30%;
       bottom: auto;
       font-size: 4.5vh;
+      right: 0;
       text-shadow: 1px 2px 18px rgb(255 255 255 / 70%);
+      top: 30%;
     }
   }
 
   > .mv > .image {
-    width: 100%;
     height: 100%;
     object-fit: cover;
+    width: 100%;
   }
 
   > .description {
-    text-align: center;
-    max-width: 768px;
     margin: 0 auto;
     margin-bottom: 64px;
+    max-width: 768px;
+    text-align: center;
 
     @include respond(tab-port) {
       padding: 0 16px;
@@ -70,10 +70,10 @@
   }
 
   > .subdescription {
-    text-align: center;
-    max-width: 768px;
     margin: 0 auto;
     margin-bottom: 160px;
+    max-width: 768px;
+    text-align: center;
 
     @include respond(tab-port) {
       padding: 0 16px;
@@ -90,16 +90,16 @@
   }
 
   > .forte {
-    max-width: 768px;
     margin: 0 auto;
+    max-width: 768px;
   }
 
   > .forte > .grid {
+    column-gap: 16px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 16px;
-    column-gap: 16px;
     margin-bottom: 96px;
+    padding: 16px;
 
     // TODO: いったん消しているがレイアウトを考えたい
     @include respond(phone) {
@@ -125,12 +125,12 @@
   }
 
   > .forte > .grid > .left > .icon {
-    margin-top: 80px;
     margin-left: -100px;
+    margin-top: 80px;
 
     @include respond(tab-port) {
-      margin-top: 64px;
       margin-left: -50px;
+      margin-top: 64px;
     }
     // TODO: いったん消しているがレイアウトを考えたい
     @include respond(phone) {
@@ -156,12 +156,12 @@
   }
 
   > .forte > .grid > .right > .icon {
-    margin-top: 80px;
     margin-right: -100px;
+    margin-top: 80px;
 
     @include respond(tab-port) {
-      margin-top: 64px;
       margin-right: auto;
+      margin-top: 64px;
     }
 
     // TODO: いったん消しているがレイアウトを考えたい

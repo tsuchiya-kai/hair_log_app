@@ -2,6 +2,7 @@
   background-color: $main-white;
   box-shadow: none;
   height: 100vh;
+  opacity: 0%;
   -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
   position: fixed;
@@ -11,11 +12,10 @@
   transition: 0.3s;
   width: 304px;
   z-index: 4;
-  opacity: 0;
 
   &.Show {
+    opacity: 100%;
     transform: translate(0);
-    opacity: 1;
   }
 
   > .link {
