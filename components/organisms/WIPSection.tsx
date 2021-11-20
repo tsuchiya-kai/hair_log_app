@@ -14,7 +14,7 @@ export default function WIPSection({ title, description }: Props) {
           {description ? (
             <div className={styles.detailcontainer}>
               <h2 className={styles.subtitle}>詳細：</h2>
-              <pre className={styles.description}>{description}</pre>
+              <p className={styles.description}>{description}</p>
             </div>
           ) : (
             ""

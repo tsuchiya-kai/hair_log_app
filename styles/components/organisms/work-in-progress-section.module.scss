@@ -5,6 +5,10 @@
   justify-content: center;
   width: 100%;
 
+  @include respond(tab-port) {
+    padding: 0 24px;
+  }
+
   > .inner > .title {
     font-size: 2.5rem;
     margin-bottom: 32px;
@@ -17,6 +21,7 @@
 
   > .inner > .detailcontainer {
     text-align: left;
+    white-space: pre-line;
   }
 
   > .inner > .detailcontainer > .subtitle {
