@@ -2,6 +2,7 @@
   height: 60vh;
   width: 560px;
   overflow-y: scroll;
+  overflow: scroll;
   -webkit-overflow-scrolling: auto;
 
   @include respond(tab-port) {
