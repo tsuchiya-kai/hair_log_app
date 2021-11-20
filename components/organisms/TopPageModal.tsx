@@ -20,6 +20,7 @@ export default function TopPageModal({ data, isShow, switchFunc }: Props) {
       className={styles.topPageModal}
       isShow={isShow}
       switchFunc={switchFunc}
+      isScroll
     >
       <div className={innerStyles.topPageModalInner}>
         <h3 className={innerStyles.beautician}>stylist: {data.beautician}</h3>
