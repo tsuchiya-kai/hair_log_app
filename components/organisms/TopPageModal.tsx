@@ -2,7 +2,7 @@ import { AppModal, AppLinkButton } from "components/atoms/index";
 import urls from "lib/urls";
 import styles from "styles/components/organisms/top-page-modal.module.scss";
 import innerStyles from "styles/components/organisms/top-page-modal-inner.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Props = {
   data: CatalogData;
@@ -11,12 +11,15 @@ type Props = {
 };
 export default function TopPageModal({ data, isShow, switchFunc }: Props) {
   const [isShowMore, setShowMore] = useState(false);
+
+  useEffect(() => {
+    if (!isShow) setShowMore(false);
+  }, [isShow]);
   return (
     <AppModal
       className={styles.topPageModal}
       isShow={isShow}
       switchFunc={switchFunc}
-      isScroll
     >
       <div className={innerStyles.topPageModalInner}>
         <h3 className={innerStyles.beautician}>stylist: {data.beautician}</h3>

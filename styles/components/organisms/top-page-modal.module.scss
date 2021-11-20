@@ -1,6 +1,7 @@
 .topPageModal {
   height: 60vh;
   width: 560px;
+  overflow-y: scroll;
 
   @include respond(tab-port) {
     height: 85vh;
