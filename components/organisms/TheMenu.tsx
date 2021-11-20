@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimationHamburgerButtonOnlySp } from "components/atoms/index";
+import { HamburgerButtonAnimationThatMovesOnlyAtSP } from "components/atoms/index";
 import { MenuForPc, MenuForSp } from "components/molecules/index";
 import useViewPort from "hooks/useViewPort";
 import styles from "styles/components/organisms/the-menu.module.scss";
@@ -27,7 +27,7 @@ export default function TheMenu(props: Props) {
 
   return (
     <div className={`${styles.theMenu} ${props.className ?? ""}`}>
-      <AnimationHamburgerButtonOnlySp
+      <HamburgerButtonAnimationThatMovesOnlyAtSP
         isActive={hamburgerState}
         onMouseOver={toggleVisibleFlagForPc}
         onMouseOut={toggleVisibleFlagForPc}
