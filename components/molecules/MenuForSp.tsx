@@ -9,10 +9,11 @@ type Props = {
   className?: string;
   isShow: boolean;
   isShowSetter: (flag: boolean) => void;
+  setHamburgerState: (flag: boolean) => void;
 };
 
 export default function TheMenuForSp(props: Props) {
-  const { className, isShow, isShowSetter, ...rest } = props;
+  const { className, isShow, isShowSetter, setHamburgerState, ...rest } = props;
   const classNames = `${styles.theMenuForSp} ${className ? className : ""} ${
     isShow ? styles.Show : ""
   }`;
@@ -29,21 +30,26 @@ export default function TheMenuForSp(props: Props) {
     target: target,
   });
 
+  const closeMenu = () => {
+    isShowSetter(false);
+    setHamburgerState(false);
+  };
+
   return (
     <>
       <div {...rest} className={classNames} ref={target}>
         <Link href={urls.topPageUrl}>
-          <a className={styles.link} onClick={() => isShowSetter(false)}>
+          <a className={styles.link} onClick={closeMenu}>
             トップページ
           </a>
         </Link>
         <Link href={urls.postPageUrl}>
-          <a className={styles.link} onClick={() => isShowSetter(false)}>
+          <a className={styles.link} onClick={closeMenu}>
             投稿する
           </a>
         </Link>
         <Link href={urls.aboutPageUrl}>
-          <a className={styles.link} onClick={() => isShowSetter(false)}>
+          <a className={styles.link} onClick={closeMenu}>
             ヘアログとは
           </a>
         </Link>

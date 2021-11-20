@@ -47,6 +47,7 @@ export default function TheMenu(props: Props) {
           className={styles.pc}
           isShowSetter={setSpMenuToggleState}
           isShow={spMenuToggleState}
+          setHamburgerState={setHamburger}
         />
       )}
     </div>
