@@ -53,12 +53,16 @@ export default function TopPageModal({ data, isShow, switchFunc }: Props) {
           })}
         </div>
 
-        <button
-          className={innerStyles.showmore}
-          onClick={() => setShowMore((prev) => !prev)}
-        >
-          {isShowMore ? "Display Less" : "Show More"}
-        </button>
+        {data.recent_posts.length === 0 ? (
+          ""
+        ) : (
+          <button
+            className={innerStyles.showmore}
+            onClick={() => setShowMore((prev) => !prev)}
+          >
+            {isShowMore ? "Display Less" : "Show More"}
+          </button>
+        )}
 
         <AppLinkButton
           className={innerStyles.linkbutton}
