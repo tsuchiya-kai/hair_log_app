@@ -20,13 +20,13 @@ Basic 認証：
 
 ## Environment
 
-- node ^14.17.0
+- node 14.17.0
 
   - vercel の都合でこのバージョンです
 
 - Next.js : 12.0.3
 - react : 17.0.2
-- typescript : ^4.4.4
+- typescript : 4.4.4
 
 ## Modules
 - gsap
