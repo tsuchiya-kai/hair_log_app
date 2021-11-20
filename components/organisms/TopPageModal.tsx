@@ -22,7 +22,11 @@ export default function TopPageModal({ data, isShow, switchFunc }: Props) {
         <h3 className={innerStyles.beautician}>stylist: {data.beautician}</h3>
 
         {/* 一つ目の投稿は常に表示 */}
-        <div className={innerStyles.imagewrap}>
+        <div
+          className={`${innerStyles.imagewrap} ${
+            data.recent_posts.length === 1 ? "_mb-4" : ""
+          }`}
+        >
           <img
             className={innerStyles.image}
             src={data.recent_posts[0]?.url}
@@ -53,7 +57,7 @@ export default function TopPageModal({ data, isShow, switchFunc }: Props) {
           })}
         </div>
 
-        {data.recent_posts.length === 0 ? (
+        {data.recent_posts.length === 1 ? (
           ""
         ) : (
           <button
