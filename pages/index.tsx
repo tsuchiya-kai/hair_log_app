@@ -38,8 +38,8 @@ export default function TopPage() {
     setSearchResult([...data.data]);
 
     setPage(2); // NOTE: 今回が1なので、次回用にインクリメント済みの2を固定で指定する
-    const { total_page } = data;
-    setLastPage(page === total_page);
+    const { current_page, total_page, is_last_page } = data;
+    setLastPage(current_page === total_page || is_last_page);
   };
 
   /**
@@ -74,7 +74,7 @@ export default function TopPage() {
       if (inputState) {
         setTarget(targetType.search);
         const fetchRecent = async () => {
-          const endpoint = `/api/catalog/search?page=${page}?word=${searchWord}`;
+          const endpoint = `/api/catalog/search?page=${page}&word=${searchWord}`;
           const res: AxiosResponse<CatalogDataResponse> =
             await axios.get<CatalogDataResponse>(endpoint);
           const { data } = res;
@@ -85,8 +85,8 @@ export default function TopPage() {
           });
 
           setPage((prev) => prev + 1);
-          const { total_page } = data;
-          setLastPage(page === total_page);
+          const { current_page, total_page, is_last_page } = data;
+          setLastPage(current_page === total_page || is_last_page);
         };
 
         void fetchRecent();
@@ -106,8 +106,8 @@ export default function TopPage() {
           });
 
           setPage((prev) => prev + 1);
-          const { total_page } = data;
-          setLastPage(page === total_page);
+          const { current_page, total_page, is_last_page } = data;
+          setLastPage(current_page === total_page || is_last_page);
         };
 
         void fetchRecent();
