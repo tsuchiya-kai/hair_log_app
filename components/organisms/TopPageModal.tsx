@@ -19,7 +19,7 @@ export default function TopPageModal({ data, isShow, switchFunc }: Props) {
       isScroll
     >
       <div className={innerStyles.topPageModalInner}>
-        <h3 className={innerStyles.beautician}>{data.beautician}</h3>
+        <h3 className={innerStyles.beautician}>stylist: {data.beautician}</h3>
 
         {/* 一つ目の投稿は常に表示 */}
         <div className={innerStyles.imagewrap}>
