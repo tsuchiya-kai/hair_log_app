@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import Head from "next/head";
 import useViewPort from "hooks/useViewPort";
 import {
@@ -10,12 +10,31 @@ import { gsap, Power4 } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "styles/pages/about-page.module.scss";
 gsap.registerPlugin(ScrollTrigger);
+import { GetServerSidePropsContext } from "next";
 
-export default function About() {
+export function getServerSideProps({ req }: GetServerSidePropsContext) {
+  return {
+    props: {
+      serverDecisionIsPcSize: !req.headers["user-agent"]?.match(
+        /iPhone|Android.+Mobile/
+      ),
+    },
+  };
+}
+
+type Props = {
+  serverDecisionIsPcSize: boolean;
+};
+
+export default function About({ serverDecisionIsPcSize }: Props) {
+  const [isPcSize, setIsPcSize] = useState<boolean>(serverDecisionIsPcSize);
   const { windowWidth } = useViewPort();
   const tabPortBreakPoint = 768;
-  // TODO: window objectが取得できるまでの一瞬チラつく
-  const isPcSize = windowWidth ? windowWidth > tabPortBreakPoint : false;
+  useEffect(() => {
+    if (windowWidth) {
+      setIsPcSize(windowWidth ? windowWidth > tabPortBreakPoint : false);
+    }
+  }, [windowWidth]);
 
   /**
    * アニメーション周り
@@ -23,12 +42,12 @@ export default function About() {
   const mvRef = useRef<HTMLElement>(null);
   const descriptionRef1 = useRef<HTMLElement>(null);
   const descriptionRef2 = useRef<HTMLElement>(null);
-  const searchTitle = useRef<HTMLHeadingElement>(null);
-  const searchText = useRef<HTMLHeadingElement>(null);
-  const searchIcon = useRef<HTMLDivElement>(null);
-  const categoryTitle = useRef<HTMLHeadingElement>(null);
-  const categoryText = useRef<HTMLHeadingElement>(null);
-  const categoryIcon = useRef<HTMLDivElement>(null);
+  const searchTitleRef = useRef<HTMLHeadingElement>(null);
+  const searchTextRef = useRef<HTMLHeadingElement>(null);
+  const searchIconRef = useRef<HTMLDivElement>(null);
+  const categoryTitleRef = useRef<HTMLHeadingElement>(null);
+  const categoryTextRef = useRef<HTMLHeadingElement>(null);
+  const categoryIconRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (process.browser) {
       gsap.set([descriptionRef1.current, descriptionRef2.current], {
@@ -63,12 +82,12 @@ export default function About() {
       // forte周り
       gsap.set(
         [
-          searchTitle.current,
-          searchText.current,
-          searchIcon.current,
-          categoryTitle.current,
-          categoryText.current,
-          categoryIcon.current,
+          searchTitleRef.current,
+          searchTextRef.current,
+          searchIconRef.current,
+          categoryTitleRef.current,
+          categoryTextRef.current,
+          categoryIconRef.current,
         ],
         {
           autoAlpha: 0,
@@ -82,12 +101,12 @@ export default function About() {
             start: "top center",
           },
         })
-        .to(searchTitle.current, 0.5, {
+        .to(searchTitleRef.current, 0.5, {
           autoAlpha: 1,
           ease: Power4.easeOut,
         })
         .to(
-          searchText.current,
+          searchTextRef.current,
           0.5,
           {
             autoAlpha: 1,
@@ -96,7 +115,7 @@ export default function About() {
           "-=0.3"
         )
         .to(
-          searchIcon.current,
+          searchIconRef.current,
           0.5,
           {
             autoAlpha: 1,
@@ -104,12 +123,12 @@ export default function About() {
           },
           "-=0.2"
         )
-        .to(categoryTitle.current, 0.5, {
+        .to(categoryTitleRef.current, 0.5, {
           autoAlpha: 1,
           ease: Power4.easeOut,
         })
         .to(
-          categoryText.current,
+          categoryTextRef.current,
           0.5,
           {
             autoAlpha: 1,
@@ -118,7 +137,7 @@ export default function About() {
           "-=0.3"
         )
         .to(
-          categoryIcon.current,
+          categoryIconRef.current,
           0.5,
           {
             autoAlpha: 1,
@@ -190,10 +209,10 @@ export default function About() {
           <div className={styles.grid}>
             <div className={styles.left}>
               {/* TODO: そのうち様々な単位で検索できるようにした方が良い */}
-              <h2 className={styles.title} ref={searchTitle}>
+              <h2 className={styles.title} ref={searchTitleRef}>
                 美容師単位で検索
               </h2>
-              <p className={styles.text} ref={searchText}>
+              <p className={styles.text} ref={searchTextRef}>
                 テキストテキストテキストテキストテキストテキストテキスト
                 <br />
                 テキストテキストテキストテキストテキストテキストテキスト
@@ -203,7 +222,10 @@ export default function About() {
               </p>
             </div>
             <div className={styles.right}>
-              <SearchAnimationIcon className={styles.icon} ref={searchIcon} />
+              <SearchAnimationIcon
+                className={styles.icon}
+                ref={searchIconRef}
+              />
             </div>
           </div>
 
@@ -211,14 +233,14 @@ export default function About() {
             <div className={styles.left}>
               <CategoryAnimationIcon
                 className={styles.icon}
-                ref={categoryIcon}
+                ref={categoryIconRef}
               />
             </div>
             <div className={styles.right}>
-              <h2 className={styles.title} ref={categoryTitle}>
+              <h2 className={styles.title} ref={categoryTitleRef}>
                 カテゴライズ
               </h2>
-              <p className={styles.text} ref={categoryText}>
+              <p className={styles.text} ref={categoryTextRef}>
                 テキストテキストテキストテキストテキストテキストテキスト
                 <br />
                 テキストテキストテキストテキストテキストテキストテキスト

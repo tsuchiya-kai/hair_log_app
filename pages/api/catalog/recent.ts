@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { random } from "lib/utilityFunctions";
+import { randomNumber } from "lib/utilityFunctions";
 
 /**
  * TODO:
@@ -21,12 +21,20 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     return;
   }
 
+  const randomPersonName = {
+    1: "山本 耀司",
+    2: "James Jebbia",
+    3: "高田 賢三",
+    4: "川久 保玲",
+    5: "相澤 陽介",
+  } as const;
+
   const data = [...(Array(30) as undefined[])].map((_, i) => {
     return {
       beautician_id: i + 1,
-      beautician: "山田 太郎",
+      beautician: randomPersonName[randomNumber(5) as 1 | 2 | 3 | 4 | 5],
       thumbnail: `https://unsplash.it/${i + 1}00/100`,
-      recent_posts: [...(Array(random(5)) as undefined[])].map((_) => {
+      recent_posts: [...(Array(randomNumber(5)) as undefined[])].map((_) => {
         return {
           url: "https://unsplash.it/100/100",
           description: "投稿の説明文が入ります",
