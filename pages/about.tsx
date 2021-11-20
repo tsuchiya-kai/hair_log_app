@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import Head from "next/head";
 import useViewPort from "hooks/useViewPort";
 import {
@@ -10,12 +10,31 @@ import { gsap, Power4 } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "styles/pages/about-page.module.scss";
 gsap.registerPlugin(ScrollTrigger);
+import { GetServerSidePropsContext } from "next";
 
-export default function About() {
+export function getServerSideProps({ req }: GetServerSidePropsContext) {
+  return {
+    props: {
+      serverDecisionIsPcSize: !req.headers["user-agent"]?.match(
+        /iPhone|Android.+Mobile/
+      ),
+    },
+  };
+}
+
+type Props = {
+  serverDecisionIsPcSize: boolean;
+};
+
+export default function About({ serverDecisionIsPcSize }: Props) {
+  const [isPcSize, setIsPcSize] = useState<boolean>(serverDecisionIsPcSize);
   const { windowWidth } = useViewPort();
   const tabPortBreakPoint = 768;
-  // TODO: window objectが取得できるまでの一瞬チラつく
-  const isPcSize = windowWidth ? windowWidth > tabPortBreakPoint : false;
+  useEffect(() => {
+    if (windowWidth) {
+      setIsPcSize(windowWidth ? windowWidth > tabPortBreakPoint : false);
+    }
+  }, [windowWidth]);
 
   /**
    * アニメーション周り
